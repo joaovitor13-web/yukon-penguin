@@ -1,0 +1,82 @@
+name: yukon-penguin
+
+x-game: &game
+  build:
+    context: .
+    dockerfile: deploy/Server.Dockerfile
+  environment: &game-env
+    DB_HOST: db
+    DB_NAME: yukon
+    DB_USER: yukon
+    DB_PASSWORD: ${DB_PASSWORD:?Execute node scripts/setup-local.cjs IP_DO_SERVIDOR}
+    CRYPTO_SECRET: ${CRYPTO_SECRET:?Configure CRYPTO_SECRET}
+    PUBLIC_ORIGIN: http://${LAN_IP:?Configure LAN_IP}:${WEB_PORT:-8080}
+  depends_on:
+    db:
+      condition: service_healthy
+  networks: [backend]
+  restart: unless-stopped
+
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: yukon
+      MARIADB_USER: yukon
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Configure DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Configure DB_ROOT_PASSWORD}
+    volumes:
+      - database:/var/lib/mysql
+      - ./server/yukon.sql:/docker-entrypoint-initdb.d/01-yukon.sql:ro,Z
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks: [backend]
+    restart: unless-stopped
+
+  login:
+    <<: *game
+    command: [Login]
+    healthcheck:
+      test: [CMD, node, local/health.cjs, '6111']
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  world:
+    <<: *game
+    command: [Blizzard]
+    healthcheck:
+      test: [CMD, node, local/health.cjs, '6112']
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Web.Dockerfile
+    ports:
+      - '${LAN_IP:?Configure LAN_IP}:${WEB_PORT:-8080}:8080'
+    depends_on:
+      login:
+        condition: service_healthy
+      world:
+        condition: service_healthy
+    networks: [frontend, backend]
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/healthz]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+networks:
+  frontend:
+  backend:
+    internal: true
+
+volumes:
+  database:

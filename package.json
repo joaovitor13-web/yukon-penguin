@@ -4,7 +4,10 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack --mode production --env obfuscate=false",
-    "build-crumbs": "node ./utils/build-crumbs.js"
+    "build-crumbs": "node ./utils/build-crumbs.js",
+    "local:check-assets": "node scripts/check-assets.cjs",
+    "local:assemble": "node scripts/assemble-local.cjs",
+    "test:local": "node --test tests/*.test.cjs"
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.28.3",
+    "@ruffle-rs/ruffle": "0.7.1",
     "babel-loader": "^9.2.1",
     "compression-webpack-plugin": "^10.0.0",
     "core-js": "^3.45.1",
@@ -26,6 +30,7 @@
     "howler": "^2.2.4",
     "html-webpack-plugin": "^5.6.4",
     "javascript-obfuscator": "^4.1.1",
+    "phaser": "3.80.1",
     "phasereditor2d-launcher": "^3.67.0",
     "phasereditor2d-ninepatch-plugin": "^1.2.0",
     "socket.io-client": "^4.8.1",

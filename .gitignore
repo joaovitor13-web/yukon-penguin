@@ -127,3 +127,9 @@ assets/media/**
 assets/.gitignore
 
 assets/desktop.ini
+
+# Ambiente doméstico
+.env
+local-dist/
+backups/
+assets-manifest.local.json

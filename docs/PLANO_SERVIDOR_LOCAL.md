@@ -1,9 +1,24 @@
 # Plano para jogar Yukon na rede Wi-Fi de casa
 
-Status: planejamento; implementação e testes ainda pendentes.  
+Status: primeira implementação adicionada em 17/10/2026; assets e testes reais ainda pendentes.
 Data: 16 de outubro de 2026.  
 Repositório: [joaovitor13-web/yukon-penguin](https://github.com/joaovitor13-web/yukon-penguin).  
 Base analisada do cliente: commit `2f47b90137d168d484ce934b58543cadf0f94920`, versão `1.11.0-beta`.
+
+## Progresso da implementação — 17/10/2026
+
+Foram adicionados Compose, submódulo do servidor fixado em
+`fead5f7849e97a866e07d39213ff41b970497f4e`, configuração LAN, proxy, criação e
+redefinição de contas, backup e scripts de importação/verificação da mídia.
+Phaser e Ruffle serão servidos localmente pela distribuição preparada.
+
+Builds do cliente e do servidor e testes da configuração/montagem passaram.
+Ainda não foi possível executar os containers neste ambiente, que não dispõe
+de Docker/Podman ou banco instalado, nem obter o pacote de mídia compatível.
+Assim, os critérios de conclusão das etapas abaixo continuam pendentes.
+
+Consulte [instalação](INSTALACAO_LOCAL.md), [assets](ASSETS.md),
+[operação](OPERACAO_LOCAL.md) e [resultados dos testes](TESTES_MULTIPLAYER.md).
 
 ## 1. Objetivo
 

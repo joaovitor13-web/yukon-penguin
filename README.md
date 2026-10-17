@@ -1,5 +1,22 @@
 # Yukon
 
+## Servidor na rede Wi-Fi de casa
+
+Este fork inclui uma primeira implementação do ambiente doméstico com Docker
+Compose, contas individuais e dados persistentes. Os assets compatíveis ainda
+precisam ser obtidos, e os testes com containers e jogadores estão pendentes.
+
+- [Instalação local](docs/INSTALACAO_LOCAL.md)
+- [Importação de assets](docs/ASSETS.md)
+- [Contas, operação e backup](docs/OPERACAO_LOCAL.md)
+- [Estado dos testes](docs/TESTES_MULTIPLAYER.md)
+- [Plano de implementação](docs/PLANO_SERVIDOR_LOCAL.md)
+
+O servidor é o submódulo `server/`, fixado em
+`fead5f7849e97a866e07d39213ff41b970497f4e` (1.11.0-beta).
+
+As instruções originais do projeto seguem abaixo.
+
 Visit the Discord server for more support.
 
 [![Yukon Discord members](https://badgen.net/discord/members/NtYtpzyxBu)](https://discord.gg/NtYtpzyxBu)
