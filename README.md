@@ -208,6 +208,12 @@ está em inglês; o salão de acesso foi criado localmente em Phaser.
 O Pizzatron é individual: cada jogador faz sua própria partida, enquanto o
 salão da pizzaria é compartilhado.
 
+## Como chegar à Mina e jogar Cart Surfer
+
+Pela **Cabana da Mina** (Floresta → Cabana), clique na entrada da mina; ou pela
+**Caverna** (Plaza → bueiro), saia pela direita. Dentro da mina, clique no
+carrinho à direita para jogar **Cart Surfer**.
+
 Se estiver atualizando uma instalação já em execução, execute
 `bash scripts/local.sh build` e depois `bash scripts/local.sh start`. Isso
 atualiza as imagens preservando o volume do banco. Recarregue o navegador com

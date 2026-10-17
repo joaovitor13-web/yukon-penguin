@@ -1,0 +1,31 @@
+{
+  "source": "https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/mine",
+  "revision": "c23f3b451fc58db4f411bc0287850e42821a5a6d",
+  "files": [
+    {
+      "path": "media/rooms/mine/mine.json",
+      "bytes": 126067,
+      "sha256": "1235017c7e701ae32512d389aa809bf42d9024ae9c25943e7a1207947f76f4b0"
+    },
+    {
+      "path": "media/rooms/mine/mine-0.webp",
+      "bytes": 634908,
+      "sha256": "87ddd8627dab1cc7c7365fe56a8f2786c7b1ed2378be0d78ff0df3926d60861a"
+    },
+    {
+      "path": "media/rooms/mine/mine-1.webp",
+      "bytes": 535008,
+      "sha256": "f7f2d2e59a606dee1f4069fbd92fc485e2a198912e16fc88e497a7a81a8408ed"
+    },
+    {
+      "path": "media/rooms/mine/mine-physics.json",
+      "bytes": 4159,
+      "sha256": "9b9bc5f2cd60437421da6a8b5e801f2418cadb90545cb1f49f35e3b8e69aa59f"
+    },
+    {
+      "path": "media/rooms/mine/mine-telephone.mp3",
+      "bytes": 2600,
+      "sha256": "c98d2fbd57f6fe11989c158d41a6d941eb1c4c9c6faaee8878be1fe10ad5ffd3"
+    }
+  ]
+}
