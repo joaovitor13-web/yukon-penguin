@@ -1,8 +1,11 @@
 const http = require('node:http');
 
+// Cores oferecidas no cadastro original (itens 1 a 13 do catálogo).
+const colors = Array.from({ length: 13 }, (_, i) => i + 1);
+
 function validateAccount(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return 'Preencha os dados da conta.';
-    const { username, password, confirmation } = value;
+    const { username, password, confirmation, color } = value;
     if (typeof username !== 'string' || !/^[A-Za-z0-9 ]{4,12}$/.test(username) || username.trim() !== username) {
         return 'Use um nome com 4 a 12 letras sem acento, números ou espaços internos.';
     }
@@ -10,6 +13,7 @@ function validateAccount(value) {
         return 'Use uma senha com pelo menos 8 caracteres, até 72 bytes e sem espaços nas extremidades.';
     }
     if (password !== confirmation) return 'As senhas não coincidem.';
+    if (!colors.includes(color)) return 'Escolha uma cor para o seu pinguim.';
     return null;
 }
 
@@ -44,7 +48,7 @@ function createRegistrationServer({ origin, createAccount }) {
             catch { return reply(400, 'Não foi possível ler os dados. Envie o formulário novamente.'); }
             const error = validateAccount(account);
             if (error) return reply(400, error);
-            await createAccount(account.username, account.password);
+            await createAccount(account.username, account.password, account.color);
             reply(201, 'Conta criada! Volte ao jogo e entre com seu nome e senha.');
         } catch (error) {
             if (error.code === 'ER_DUP_ENTRY') return reply(409, 'Esse nome já está em uso. Escolha outro.');
@@ -54,7 +58,7 @@ function createRegistrationServer({ origin, createAccount }) {
     });
 }
 
-module.exports = { validateAccount, createRegistrationServer };
+module.exports = { colors, validateAccount, createRegistrationServer };
 
 if (require.main === module) {
     const mysql = require('mysql2/promise');
@@ -64,10 +68,10 @@ if (require.main === module) {
     const pool = mysql.createPool({ host, database, user, password, connectionLimit: 2 });
     const server = createRegistrationServer({
         origin,
-        async createAccount(username, plaintext) {
+        async createAccount(username, plaintext, color) {
             const hash = await bcrypt.hash(plaintext, 10);
-            // O gatilho do banco cria iglu, inventário e cartão de boas-vindas.
-            await pool.execute('INSERT INTO users (username, password, rank) VALUES (?, ?, 1)', [username, hash]);
+            // O gatilho do banco cria iglu, inventário com a cor e cartão de boas-vindas.
+            await pool.execute('INSERT INTO users (username, password, rank, color) VALUES (?, ?, 1, ?)', [username, hash, color]);
         }
     });
     server.requestTimeout = 10000;

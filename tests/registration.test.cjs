@@ -3,25 +3,27 @@ const assert = require('node:assert/strict');
 const { once } = require('node:events');
 const { validateAccount, createRegistrationServer } = require('../deploy/runtime/registration.cjs');
 
-const account = { username: 'Pinguim1', password: 'umaSenha123', confirmation: 'umaSenha123' };
+const account = { username: 'Pinguim1', password: 'umaSenha123', confirmation: 'umaSenha123', color: 5 };
 
 test('cadastro valida nomes, confirmação e limite em bytes do bcrypt', () => {
     assert.equal(validateAccount(account), null);
     for (const value of [null, [], {}, { ...account, username: 'João' }, { ...account, username: ' Nome' },
         { ...account, username: 'abc' }, { ...account, password: 'curta' },
         { ...account, password: ' senha123' }, { ...account, confirmation: 'diferente' },
-        { ...account, password: 'é'.repeat(37), confirmation: 'é'.repeat(37) }]) {
+        { ...account, password: 'é'.repeat(37), confirmation: 'é'.repeat(37) },
+        { ...account, color: undefined }, { ...account, color: 0 }, { ...account, color: 14 }, { ...account, color: '5' }, { ...account, color: 1.5 }]) {
         assert.equal(typeof validateAccount(value), 'string');
     }
     assert.equal(validateAccount({ ...account, password: 'é'.repeat(36), confirmation: 'é'.repeat(36) }), null);
+    for (const color of [1, 13]) assert.equal(validateAccount({ ...account, color }), null);
 });
 
 test('HTTP cria conta comum, rejeita duplicata, origem externa e dados inválidos', async t => {
     const created = [];
     const origin = 'http://192.168.1.19:8080';
-    const server = createRegistrationServer({ origin, async createAccount(username, password) {
+    const server = createRegistrationServer({ origin, async createAccount(username, password, color) {
         if (created.length) throw Object.assign(new Error(), { code: 'ER_DUP_ENTRY' });
-        created.push({ username, password });
+        created.push({ username, password, color });
     } });
     server.listen(0, '127.0.0.1');
     await once(server, 'listening');
@@ -37,7 +39,7 @@ test('HTTP cria conta comum, rejeita duplicata, origem externa e dados inválido
     const response = await post({ ...account, rank: 5 });
     assert.equal(response.status, 201);
     assert.match((await response.json()).message, /Conta criada/);
-    assert.deepEqual(created, [{ username: account.username, password: account.password }]);
+    assert.deepEqual(created, [{ username: account.username, password: account.password, color: account.color }]);
     assert.equal((await post(account)).status, 409);
     assert.equal((await fetch(url)).status, 405);
 });

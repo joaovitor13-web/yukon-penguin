@@ -41,6 +41,7 @@ const html = fs.readFileSync(htmlPath, 'utf8')
 if (html.includes('cdn.jsdelivr.net')) throw new Error('Uma dependência CDN ficou no HTML.');
 fs.writeFileSync(htmlPath, html);
 fs.copyFileSync(path.join(root, 'deploy/account-info.html'), path.join(out, 'account-info.html'));
+fs.cpSync(path.join(root, 'resources/create'), path.join(out, 'create/img'), { recursive: true, filter: file => !file.endsWith('.md') });
 console.log('Distribuição local gerada em local-dist/. Validar mídia e jogos em navegador.');
 }
 

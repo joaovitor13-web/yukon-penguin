@@ -39,6 +39,7 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         write('node_modules/@ruffle-rs/ruffle/core.wasm', 'fixture');
         write('deploy/account-info.html', '<p>Conta local</p>');
         fs.cpSync(path.join(__dirname, '../resources/pizzatron'), path.join(root, 'resources/pizzatron'), { recursive: true });
+        fs.cpSync(path.join(__dirname, '../resources/create'), path.join(root, 'resources/create'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/pizza'), path.join(root, 'resources/pizza'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/pt-BR'), path.join(root, 'resources/pt-BR'), { recursive: true });
         assemble(root);
@@ -50,6 +51,9 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         assert.equal(crumbs.games['910'].path, 'pizzatron/game.swf');
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/flash/games/pizzatron/lang/en/locale.swf')));
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/rooms/pizza/pizza.png')));
+        for (const image of ['doll-body.png', 'doll-outline.png', 'starburst.png']) {
+            assert.ok(fs.existsSync(path.join(root, 'local-dist/create/img', image)), image);
+        }
         assert.equal(fs.readFileSync(path.join(root, 'assets/media/crumbs/en/worlds.json'), 'utf8'), original);
         assert.ok(!fs.readFileSync(path.join(root, 'local-dist/index.html'), 'utf8').includes('cdn.jsdelivr.net'));
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/vendor/ruffle/core.wasm')));
