@@ -7,9 +7,50 @@ contém um pacote de mídia anexado. Na [issue 3 do Yukon](https://github.com/wi
 os comentários indicam que os arquivos eram disponibilizados nos itens fixados
 do Discord do projeto. O README do upstream aponta para essa comunidade.
 
-Não foi obtido um pacote compatível nesta implementação. Não existe um link
-de download validado que possa ser automatizado neste momento. Não é necessário
-baixar outra versão do jogo ou arquivos de um servidor público para usar os scripts.
+### Fonte específica do Yukon encontrada
+
+A busca ampliada encontrou a fonte original pública:
+[piefruit/assets no GitGud](https://gitgud.io/piefruit/assets).
+O acesso Git foi confirmado, mesmo com falhas de carregamento pela ferramenta
+de pesquisa. Revisão examinada: `9e6a576d4e8925ebd166d636e72888e9c8fdb545`,
+de 24/08/2025.
+
+A árvore desse commit contém 33.801 arquivos, incluindo 25 packs de salas,
+13 fontes e `media/flash/boot.swf`. Foram baixados e lidos os 23 JSONs individuais
+de crumbs esperados pelo nosso verificador, sem arquivos ausentes ou JSONs
+inválidos. O preload usa o caminho esperado para `crumbs.json`, e
+`games.json` fornece o campo `path` consumido pelo cliente atual.
+
+Isso confirma uma fonte muito mais adequada para a integração. Ainda não
+confirma que toda imagem, som e SWF foi baixado e funciona: a inspeção local
+foi parcial, focada em configurações e fontes. A mídia completa ainda não foi
+importada no jogo e nenhuma partida foi validada.
+
+Para baixar a cópia completa, fora do repositório do jogo:
+
+```bash
+git clone --depth 1 https://gitgud.io/piefruit/assets.git ../yukon-assets
+git -C ../yukon-assets rev-parse HEAD
+node scripts/import-assets.cjs ../yukon-assets
+npm run local:check-assets
+```
+
+Esses comandos devem ser executados na pasta `yukon-penguin`. O segundo
+comando registra a revisão efetivamente baixada; compare-a com a examinada
+acima. O clone completo é diferente da cópia parcial usada nesta pesquisa.
+
+### Espelho no GitHub e outras fontes
+
+| Fonte | Conteúdo e adequação |
+|---|---|
+| [Gabiworld/assets-yukon](https://github.com/Gabiworld/assets-yukon) | Espelho cujo README aponta para piefruit/assets. Commit consultado `af587035c16206fe5f6048f994c589ccbbbcad3d`, de 12/01/2023. Inclui mídia e fontes, mas faltam 10 dos 23 JSONs individuais exigidos atualmente e o formato dos minijogos é antigo. Não usar como pacote completo para nosso cliente. |
+| [Solero legacy-media](https://git.solero.me/solero/legacy-media) | Mídia para o cliente Flash AS2; pode servir de referência ou complemento, mas não substitui diretamente os packs Phaser/JSON do Yukon. |
+| [Solero vanilla-media](https://git.solero.me/solero/vanilla-media) | Mídia para o cliente Flash AS3; também exige adaptação para o Yukon. |
+| [anthonywww/cpcontinuned-media](https://github.com/anthonywww/cpcontinuned-media) | Outro arquivo público de mídia Flash, descrito pelo autor como compatível com Aurora. Não é um pacote pronto para Yukon. |
+
+A prioridade passa a ser importar a fonte piefruit/assets, auditar os caminhos
+referenciados e testar o carregamento do jogo, em vez de reconstruir os recursos
+a partir dos arquivos Flash originais.
 
 ## Importação
 
