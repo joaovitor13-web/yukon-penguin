@@ -32,6 +32,7 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         for (const name of crumbNames) write(`assets/media/crumbs/en/${name}.json`, '{}');
         const original = JSON.stringify({ Login: { host: 'https://remote', path: '/remote', name: 'Login' }, Extra: {} });
         write('assets/media/crumbs/en/worlds.json', original);
+        write('assets/media/crumbs/en/games.json', JSON.stringify({ 905: { key: 'mine', path: 'mine/bootstrap.swf', music: 105 } }));
         write('dist/index.html', '<script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle/ruffle.min.js"></script>');
         write('node_modules/phaser/dist/phaser.min.js', '// fixture');
         write('node_modules/phaser/LICENSE.md', 'MIT fixture');
@@ -40,6 +41,7 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         write('deploy/account-info.html', '<p>Conta local</p>');
         fs.cpSync(path.join(__dirname, '../resources/pizzatron'), path.join(root, 'resources/pizzatron'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/pizza'), path.join(root, 'resources/pizza'), { recursive: true });
+        fs.cpSync(path.join(__dirname, '../resources/mine'), path.join(root, 'resources/mine'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/pt-BR'), path.join(root, 'resources/pt-BR'), { recursive: true });
         assemble(root);
         const crumbs = JSON.parse(fs.readFileSync(path.join(root, 'local-dist/assets/media/crumbs/en/crumbs.json'), 'utf8'));
@@ -50,6 +52,9 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         assert.equal(crumbs.games['910'].path, 'pizzatron/game.swf');
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/flash/games/pizzatron/lang/en/locale.swf')));
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/rooms/pizza/pizza.png')));
+        assert.equal(crumbs.rooms['808'].path, 'mine/Mine');
+        assert.deepEqual(crumbs.games['905'], { key: 'cart', path: 'mine/bootstrap.swf', music: 105 });
+        assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/rooms/mine/mine-1.webp')));
         assert.equal(fs.readFileSync(path.join(root, 'assets/media/crumbs/en/worlds.json'), 'utf8'), original);
         assert.ok(!fs.readFileSync(path.join(root, 'local-dist/index.html'), 'utf8').includes('cdn.jsdelivr.net'));
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/vendor/ruffle/core.wasm')));

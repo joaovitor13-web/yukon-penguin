@@ -1,6 +1,9 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { rooms } = require('./pizzatron.cjs');
+const { rooms: pizzatronRooms } = require('./pizzatron.cjs');
+const { rooms: mineRooms } = require('./mine.cjs');
+
+const rooms = [...pizzatronRooms, ...mineRooms];
 
 function install(root) {
     const file = path.join(root, 'data/rooms.json');

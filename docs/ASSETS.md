@@ -108,3 +108,15 @@ A sala de acesso usa o pack original da pizzaria obtido de
 [CPJourney-2/assets](https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/pizza),
 versionado em `resources/pizza/` com manifesto SHA-256 e
 [notas de origem](../resources/pizza/README.md). Os textos do minijogo estão em inglês.
+
+## Complemento Mina
+
+O pacote fixado de `yukon-assets` contém o minijogo Cart Surfer
+(`flash/games/mine`), mas não a sala da mina. O pack original da sala foi obtido de
+[CPJourney-2/assets](https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/mine)
+e versionado em `resources/mine/`, com manifesto SHA-256 e
+[notas de origem](../resources/mine/README.md). A montagem gera a entrada 808 (Mine)
+e troca a chave do jogo 905 de `mine` para `cart`, que tem textos de prompt,
+carregamento e busca de amigos. O servidor recebe as salas 808 e 905 pelo mesmo
+instalador do Pizzatron (`deploy/runtime/mine.cjs`).
+

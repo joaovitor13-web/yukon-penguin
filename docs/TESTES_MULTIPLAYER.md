@@ -124,3 +124,16 @@ A ausência de erros de JSON não substitui uma sessão real.
 A sala de acesso é uma implementação local, não uma conversão completa da sala
 original. O jogo está em inglês. Ainda não foi validada uma partida perfeita
 com 40 pizzas nem o desempenho nos dispositivos dos demais jogadores.
+
+## Integração da Mina — 17/10/2026
+
+- Pack original da sala Mine (808) adicionado em `resources/mine/`, com revisão
+  de origem e manifesto SHA-256; cena Phaser adaptada de CPJourney-2/yukon.
+- Entradas ligadas: máquina da mina na Cabana (807) e saída à direita da
+  Caverna (806). Na mina, a saída à esquerda volta à Caverna, o túnel do fundo
+  volta à Cabana e o carrinho abre o Cart Surfer (905).
+- Salas 808 e 905 adicionadas ao servidor e aos crumbs na montagem.
+- Doze testes automatizados passaram, incluindo integridade do pack, quadros
+  usados pela cena e montagem local. O build das quatro imagens passou.
+- Ainda não testado no navegador: entrada na sala, colisões, animações e uma
+  partida do Cart Surfer pelo Ruffle.
