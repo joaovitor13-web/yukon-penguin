@@ -45,7 +45,7 @@ export default class InputPrompt extends BaseContainer {
         // text
         const text = scene.add.text(0, 0, "", {});
         text.setOrigin(0.5, 0.5);
-        text.text = "Message goes here";
+        text.text = "Mensagem";
         text.setStyle({ "align": "center", "color": "#000000", "fixedWidth":628,"fixedHeight":136,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(text);
 
@@ -140,7 +140,7 @@ export default class InputPrompt extends BaseContainer {
         const data = this.crumbs.pets[id]
         if (!data) return
 
-        const name = data.name.toLowerCase()
+        const name = data.key || data.name.toLowerCase()
         const loadConfig = {
             key: `pet/icon/${name}`,
             url: `/assets/media/pet/icons/${name}.png`
@@ -148,7 +148,7 @@ export default class InputPrompt extends BaseContainer {
 
         const callback = (text) => this.send('adopt_pet', { typeId: id, name: text })
 
-        this.show(this.getFormatString('name_pet'), 'Continue', loadConfig, callback)
+        this.show(this.getFormatString('name_pet'), 'Continuar', loadConfig, callback)
     }
 
     send(action, args) {

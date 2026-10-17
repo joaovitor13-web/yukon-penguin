@@ -82,7 +82,7 @@
                     "components": [],
                     "y": -297,
                     "originX": 0.5,
-                    "text": "Music List",
+                    "text": "Lista de Músicas",
                     "fixedWidth": 600,
                     "align": "center",
                     "fontFamily": "Arial Narrow",
@@ -100,7 +100,7 @@
                         "musicId"
                     ],
                     "label": "musicItem",
-                    "name": "Brown Puffle Lab",
+                    "name": "Laboratório do Puffle Marrom",
                     "musicId": 305,
                     "bold": false,
                     "components": [],
@@ -119,7 +119,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_1",
-                    "name": "Beware the Dragon",
+                    "name": "Cuidado com o Dragão",
                     "musicId": 286,
                     "bold": true,
                     "components": [],
@@ -138,7 +138,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_2",
-                    "name": "Planet Y",
+                    "name": "Planeta Y",
                     "musicId": 38,
                     "bold": false,
                     "components": [],
@@ -157,7 +157,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_3",
-                    "name": "Pre-historic Rock",
+                    "name": "Rock Pré-Histórico",
                     "musicId": 35,
                     "bold": false,
                     "components": [],
@@ -176,7 +176,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_4",
-                    "name": "The Royal Court",
+                    "name": "A Corte Real",
                     "musicId": 233,
                     "bold": true,
                     "components": [],
@@ -195,7 +195,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_5",
-                    "name": "Puffle Party",
+                    "name": "Festa dos Puffles",
                     "musicId": 259,
                     "bold": false,
                     "components": [],
@@ -214,7 +214,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_6",
-                    "name": "In the Tower",
+                    "name": "Na Torre",
                     "musicId": 235,
                     "bold": false,
                     "components": [],
@@ -233,7 +233,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_7",
-                    "name": "Norman Swarm",
+                    "name": "Ataque Normando",
                     "musicId": 42,
                     "bold": false,
                     "components": [],
@@ -252,7 +252,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_8",
-                    "name": "To Battle!",
+                    "name": "À Batalha!",
                     "musicId": 236,
                     "bold": true,
                     "components": [],
@@ -271,7 +271,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_9",
-                    "name": "Flipper Jig",
+                    "name": "Dança das Nadadeiras",
                     "musicId": 263,
                     "bold": false,
                     "components": [],
@@ -290,7 +290,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_10",
-                    "name": "Icy Serenade",
+                    "name": "Serenata Gelada",
                     "musicId": 256,
                     "bold": true,
                     "components": [],
@@ -309,7 +309,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_11",
-                    "name": "The Way of Sensei",
+                    "name": "O Caminho do Sensei",
                     "musicId": 24,
                     "bold": false,
                     "components": [],
@@ -328,7 +328,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_12",
-                    "name": "Puffle Rescue: In the Cave",
+                    "name": "Resgate de Puffles: Na Caverna",
                     "musicId": 120,
                     "bold": false,
                     "components": [],
@@ -347,7 +347,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_13",
-                    "name": "For Great Justice",
+                    "name": "Pela Grande Justiça",
                     "musicId": 32,
                     "bold": false,
                     "components": [],
@@ -366,7 +366,7 @@
                         "musicId"
                     ],
                     "label": "musicItem_14",
-                    "name": "No Music",
+                    "name": "Sem Música",
                     "musicId": 0,
                     "bold": false,
                     "components": [],

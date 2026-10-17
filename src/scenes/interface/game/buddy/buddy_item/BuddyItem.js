@@ -84,12 +84,12 @@ export default class BuddyItem extends BaseContainer {
     }
 
     showRemoveIgnore() {
-        let text = `Would you like to remove ${this.username.text}\nfrom your ignore list?`
+        let text = `Você gostaria de remover ${this.username.text}\nda sua lista de ignorados?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('ignore_remove', { id: this.id })
 
-            this.interface.prompt.showWindow('Done', 'single')
+            this.interface.prompt.showWindow('Pronto', 'single')
         })
     }
 

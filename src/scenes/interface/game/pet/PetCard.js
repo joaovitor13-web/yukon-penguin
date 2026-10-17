@@ -115,21 +115,21 @@ export default class PetCard extends BaseWidget {
         // restText
         const restText = scene.add.text(-210, 168, "", {});
         restText.setOrigin(0, 0.5);
-        restText.text = "REST";
+        restText.text = "DESCANSO";
         restText.setStyle({ "align": "right", "fixedWidth":160,"fontFamily": "CCFaceFront", "fontSize": "28px", "stroke": "#003366", "strokeThickness":8,"shadow.color": "#003366", "shadow.blur":3,"shadow.stroke":true});
         this.add(restText);
 
         // healthText
         const healthText = scene.add.text(-210, 120, "", {});
         healthText.setOrigin(0, 0.5);
-        healthText.text = "HEALTH";
+        healthText.text = "SAÚDE";
         healthText.setStyle({ "align": "right", "fixedWidth":160,"fontFamily": "CCFaceFront", "fontSize": "28px", "stroke": "#003366", "strokeThickness":8,"shadow.color": "#003366", "shadow.blur":3,"shadow.stroke":true});
         this.add(healthText);
 
         // energyText
         const energyText = scene.add.text(-210, 77, "", {});
         energyText.setOrigin(0, 0.5);
-        energyText.text = "ENERGY";
+        energyText.text = "ENERGIA";
         energyText.setStyle({ "align": "right", "fixedWidth":160,"fontFamily": "CCFaceFront", "fontSize": "28px", "stroke": "#003366", "strokeThickness":8,"shadow.color": "#003366", "shadow.blur":3,"shadow.stroke":true});
         this.add(energyText);
 
@@ -239,7 +239,8 @@ export default class PetCard extends BaseWidget {
     }
 
     updatePaper() {
-        const name = this.crumbs.pets[this.pet.typeId].name.toLowerCase()
+        const crumb = this.crumbs.pets[this.pet.typeId]
+        const name = crumb.key || crumb.name.toLowerCase()
 
         const happiness = this.pet.happiness
         const frame = happiness > 75 ? 1 : happiness > 50 ? 2 : happiness > 25 ? 3 : 4

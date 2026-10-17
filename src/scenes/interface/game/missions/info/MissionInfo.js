@@ -25,7 +25,7 @@ export default class MissionInfo extends BaseContainer {
         // launchText
         const launchText = scene.add.text(257, 585, "", {});
         launchText.setOrigin(0.5, 0.5);
-        launchText.text = "launch mission";
+        launchText.text = "iniciar missão";
         launchText.setStyle({ "align": "center", "color": "#ffff00", "fixedWidth":300,"fontFamily": "CPLCD", "fontSize": "43px" });
         launchText.setLineSpacing(-4);
         this.add(launchText);

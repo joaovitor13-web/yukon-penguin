@@ -241,7 +241,7 @@ export default class ClientController {
 
     sendTour() {
         if (this.penguin.equipped.head.id !== 428) {
-            this.interface.prompt.showError('Sorry, you must wear the tour guide\nhat to use this feature')
+            this.interface.prompt.showError('Desculpe, você precisa usar o chapéu de\nguia turístico para usar este recurso')
             return
         }
 
@@ -265,7 +265,7 @@ export default class ClientController {
 
     sendJoinRoom(id, name, x = 0, y = 0, randomRange = 40) {
         if (this.activeSeat) {
-            return this.interface.prompt.showError('Please exit your game before leaving the room')
+            return this.interface.prompt.showError('Saia do jogo antes de deixar a sala')
         }
 
         this.interface.showLoading(this.getString('joining', name))
@@ -294,7 +294,7 @@ export default class ClientController {
         }
 
         if (this.activeSeat) {
-            return this.interface.prompt.showError('Please exit your game before leaving the room')
+            return this.interface.prompt.showError('Saia do jogo antes de deixar a sala')
         }
 
         this.interface.showLoading(this.getString('joining', 'igloo'))
@@ -306,7 +306,7 @@ export default class ClientController {
 
     sendJoinGame(id) {
         if (this.activeSeat) {
-            return this.interface.prompt.showError('Please exit your game before leaving the room')
+            return this.interface.prompt.showError('Saia do jogo antes de deixar a sala')
         }
 
         this.network.send('join_room', { room: id, x: 0, y: 0 })

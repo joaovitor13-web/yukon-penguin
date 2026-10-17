@@ -43,7 +43,7 @@
                     "y": -236,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "Your Friends",
+                    "text": "Seus Amigos",
                     "fixedWidth": 420,
                     "align": "center",
                     "fontFamily": "Arial Narrow",
@@ -240,7 +240,7 @@
                         "ShowHint"
                     ],
                     "Button.spriteName": "blue-button",
-                    "Button.callback": "() => this.switchList('buddies', 'Your Friends')",
+                    "Button.callback": "() => this.switchList('buddies', 'Seus Amigos')",
                     "ShowHint.text": "buddy_hint",
                     "texture": {
                         "key": "main",
@@ -258,7 +258,7 @@
                         "ShowHint"
                     ],
                     "Button.spriteName": "blue-button",
-                    "Button.callback": "() => this.switchList('room', 'Users in Room')",
+                    "Button.callback": "() => this.switchList('room', 'Pinguins na Sala')",
                     "ShowHint.text": "online_hint",
                     "texture": {
                         "key": "main",
@@ -275,7 +275,7 @@
                         "ShowHint"
                     ],
                     "Button.spriteName": "blue-button",
-                    "Button.callback": "() => this.switchList('ignores', 'Ignore List')",
+                    "Button.callback": "() => this.switchList('ignores', 'Lista de Ignorados')",
                     "ShowHint.text": "ignore_hint",
                     "texture": {
                         "key": "main",

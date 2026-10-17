@@ -234,7 +234,7 @@ export default class PetsCatalog extends BookContainer {
         // coins
         const coins = scene.add.text(1130, 790, "", {});
         coins.setOrigin(1, 0);
-        coins.text = "YOUR COINS:";
+        coins.text = "SUAS MOEDAS:";
         coins.setStyle({ "align": "right", "fixedWidth":600,"fontFamily": "CCComiccrazy", "fontSize": "32px", "stroke": "#000", "strokeThickness":9});
         buttons.add(coins);
 

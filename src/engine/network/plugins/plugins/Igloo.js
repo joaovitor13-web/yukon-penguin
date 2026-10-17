@@ -38,7 +38,7 @@ export default class Igloo extends Plugin {
 
         this.interface.updateCatalogCoins(args.coins)
 
-        let text = `${this.crumbs.igloos[args.igloo].name}\nhas been added to your inventory.`
+        let text = `${this.crumbs.igloos[args.igloo].name}\nfoi adicionado ao seu inventário.`
         this.interface.prompt.showWindow(text, 'single')
     }
 
@@ -56,7 +56,7 @@ export default class Igloo extends Plugin {
 
         this.interface.updateCatalogCoins(args.coins)
 
-        let text = `${this.crumbs.furniture[args.furniture].name}\nhas been added to your inventory.`
+        let text = `${this.crumbs.furniture[args.furniture].name}\nfoi adicionado ao seu inventário.`
         this.interface.prompt.showWindow(text, 'single')
     }
 

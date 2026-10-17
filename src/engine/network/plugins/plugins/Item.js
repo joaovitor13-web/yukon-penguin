@@ -47,7 +47,7 @@ export default class Item extends Plugin {
         }
 
         // Show prompt
-        let text = `${args.name}\nhas been added to your inventory.`
+        let text = `${data.name}\nfoi adicionado ao seu inventário.`
         this.interface.prompt.showWindow(text, 'single')
     }
 

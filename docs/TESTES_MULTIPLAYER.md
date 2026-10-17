@@ -27,12 +27,41 @@ falha quando os JSONs essenciais estão ausentes.
 Esses resultados substituem o bloqueio anterior de obtenção dos arquivos;
 a execução com containers e os testes de partidas ainda estão pendentes.
 
-## Limitações do ambiente de desenvolvimento
+## Cadastro web validado em 17/10/2026
 
-O ambiente usado não tem Docker/Podman, Nginx nem MySQL/MariaDB disponíveis.
-Por isso o Compose não foi iniciado e ainda não foram comprovados o SQL no
-MariaDB escolhido, os comandos de conta e backup contra um banco real, o proxy
-em execução, o tratamento dos IPs, a persistência ou a restauração.
+Foi adicionado o serviço interno `registration`, acessível pelo proxy em
+`POST /api/accounts`, e um formulário em `/create/`. Não é mais necessário
+criar as contas pelo terminal; os comandos administrativos foram preservados.
+
+Verificações realizadas nesta máquina:
+
+- Build Docker das imagens `registration` e `web` concluído.
+- Cinco serviços saudáveis e configuração Nginx válida.
+- Cinco testes automatizados passaram: configuração, montagem, validação de
+  cadastro, respostas HTTP e limite de cadastros simultâneos.
+- Cadastro pelo formulário em Chrome headless, incluindo confirmação de senha
+  inválida, mensagem de sucesso e layout com largura de 390 px sem rolagem lateral.
+- Consulta ao banco real confirmou hash bcrypt válido, conta com `rank = 1`,
+  iglu, inventário e cartão inicial criados pelo gatilho.
+- Nome duplicado rejeitado pela API com HTTP 409.
+- Login via Socket.IO pelo proxy aceitou a senha da conta recém-criada e
+  rejeitou uma senha incorreta.
+- A conta temporária usada na validação foi removida ao terminar.
+
+Os testes automatizados também verificam origem externa rejeitada, limite de
+senha em bytes, JSON inválido, corpo grande e tipo de conteúdo incorreto.
+O Nginx limita as tentativas por IP; o serviço limita a duas criações simultâneas.
+
+## Ambiente atual e limites da validação
+
+Docker e Compose estão disponíveis nesta máquina. Os containers foram iniciados
+com MariaDB, login, mundo, cadastro e proxy; as tabelas e o gatilho foram usados
+na validação de cadastro. Isso substitui a limitação do ambiente anterior,
+que não tinha Docker/Podman disponíveis.
+
+A autenticação testada não comprova uma partida completa. Ainda faltam os
+ensaios com jogadores, persistência após reinícios, comandos de redefinição de
+senha, backup e restauração.
 
 ## Critérios pendentes para considerar pronto
 
@@ -40,9 +69,9 @@ em execução, o tratamento dos IPs, a persistência ou a restauração.
 |---|---|
 | Importar mídia compatível | Concluído; verificador e montagem passaram |
 | Carregar a tela inicial no navegador | Pendente: execução real |
-| Subir containers e importar tabelas/gatilhos | Pendente: Docker e banco reais |
-| Criar duas contas, conferir iglu e inventário iniciais | Pendente |
-| Nome duplicado e senha incorreta serem rejeitados | Pendente |
+| Subir containers e importar tabelas/gatilhos | Concluído; cinco serviços saudáveis e gatilho confirmado no cadastro |
+| Criar duas contas, conferir iglu e inventário iniciais | Parcial: uma conta temporária validada com dados iniciais; sessão com duas contas pendente |
+| Nome duplicado e senha incorreta serem rejeitados | Concluído no cadastro web e login via proxy |
 | Redefinir senha e impedir reutilização dos tokens antigos | Pendente |
 | Dois dispositivos entrarem pelo IP do hospedeiro | Pendente |
 | Ver um ao outro, conversar e mudar de sala | Pendente |
@@ -67,3 +96,31 @@ Em um clone novo, importe primeiro com
 `node scripts/import-assets.cjs resources/yukon-assets`. Depois execute
 `npm run local:assemble` e valide a distribuição em containers e no navegador.
 A ausência de erros de JSON não substitui uma sessão real.
+
+## Integração do Pizzatron 3000 — 17/10/2026
+
+- SWFs e auxiliares adicionados em `resources/pizzatron/`, com revisão de origem
+  e manifesto SHA-256. O pacote tem 14 arquivos e cerca de 1,2 MB.
+- Sala local Pizza (330) implementada em Phaser e ligada à porta da Plaza.
+- Sala de jogo Pizzatron (910) adicionada ao servidor e aos crumbs na montagem.
+- Build das quatro imagens de aplicação passou; cinco serviços estão saudáveis.
+- Oito testes automatizados passaram, incluindo integridade dos arquivos,
+  instalação idempotente das salas e rejeição de recompensa repetida ou inválida.
+- Teste de navegador com conta temporária confirmou login, entrada na Plaza,
+  passagem para a pizzaria e confirmação da porta da cozinha.
+- O Ruffle carregou o título e a partida original, com esteira e ingredientes.
+- Um teste da ponte de pontuação com 25 moedas confirmou o crédito no banco,
+  rejeição da segunda tentativa e retorno à pizzaria pelo prompt de moedas.
+  Essa pontuação foi injetada no teste da ponte; não representa uma receita
+  concluída manualmente no minijogo.
+- Uma partida também foi encerrada naturalmente por cinco erros. O botão DONE
+  do SWF enviou o resultado de zero moedas ao servidor; a confirmação voltou
+  à pizzaria. Esse ensaio usou a velocidade original e não injetou pontuação.
+- Os 14 arquivos servidos pelo Nginx foram baixados e comparados com os hashes
+  SHA-256 do manifesto, sem divergências.
+- Nenhum recurso HTTP do jogo ausente nem exceção JavaScript no percurso testado.
+- As contas temporárias foram removidas depois dos testes.
+
+A sala de acesso é uma implementação local, não uma conversão completa da sala
+original. O jogo está em inglês. Ainda não foi validada uma partida perfeita
+com 40 pizzas nem o desempenho nos dispositivos dos demais jogadores.

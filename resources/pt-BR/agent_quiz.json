@@ -1,0 +1,8 @@
+[
+    {"question": "Escolha uma qualidade que você acha que\num Agente Secreto deve ter:", "answers": {"Popular": false, "Honesto": true, "Mandão": false}},
+    {"question": "Escolha o motivo certo para denunciar\num pinguim a um moderador.", "answers": {"Jogar bolas de neve em você": false, "Não ser seu amigo": false, "Ser maldoso ou grosseiro": true}},
+    {"question": "O que você faria se visse um\npinguim desrespeitando as regras?", "answers": {"Gritaria com ele": false, "Denunciaria": true, "Jogaria bolas de neve nele": false}},
+    {"question": "Que tipo de informação pessoal\ndeve ser denunciada?", "answers": {"Dizer seu país": false, "Dizer se é menino ou menina": false, "Dizer seu endereço": true}},
+    {"question": "Escolha um motivo para querer\nser um Agente Secreto.", "answers": {"Meus amigos são Agentes Secretos": false, "Quero um Telefone Espião": false, "Quero manter o Club Penguin seguro": true}},
+    {"question": "Escolha outro motivo para querer\nser um Agente Secreto.", "answers": {"Sempre quis ser espião": false, "Quero ajudar outros pinguins": true, "Quero ficar de bobeira no QG": false}}
+]

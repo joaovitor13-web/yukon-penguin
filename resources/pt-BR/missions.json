@@ -1,0 +1,13 @@
+[
+    {"id": 1, "title": "O Caso dos Puffles Desaparecidos", "description": "TIA ÁRTICA, FAMOSA REPÓRTER DO\nJORNAL DO PINGUIM, ESTÁ MUITO\nTRISTE PORQUE DOIS DOS SEUS\nPUFFLES SUMIRAM! VOCÊ ACEITA O\nDESAFIO DE RESGATÁ-LOS?", "award": 801},
+    {"id": 2, "title": "A Missão Secreta do G", "description": "G, O BRILHANTE INVENTOR DA\nAGÊNCIA PINGUIM SECRETA, PRECISA\nDA SUA AJUDA EM UM DE SEUS\nNOVOS PROJETOS. O QUE SERÁ QUE\nO G ESTÁ APRONTANDO?", "award": 803},
+    {"id": 3, "title": "O Caso das Moedas Desaparecidas", "description": "AS MOEDAS DO COFRE DA LOJA DE\nPRESENTES SUMIRAM\nMISTERIOSAMENTE. VOCÊ VAI AJUDAR\nA ENCONTRÁ-LAS E RESOLVER O\nMISTÉRIO?", "award": 805},
+    {"id": 4, "title": "Resgate na Avalanche", "description": "HOUVE UMA AVALANCHE NA\nMONTANHA DE ESQUI E SUA AJUDA\nÉ NECESSÁRIA. VOCÊ VAI ATENDER\nAO CHAMADO?", "award": 808},
+    {"id": 5, "title": "O Segredo do Pelo", "description": "O MISTÉRIO DO PELO CONTINUA\nSEM SOLUÇÃO. VOCÊ VAI AJUDAR O G\nA DESVENDAR ESSE SEGREDO?", "award": 810},
+    {"id": 6, "title": "Perguntas para um Caranguejo", "description": "RESTAM MUITAS PERGUNTAS QUE SÓ\nUM CARANGUEJO PODE RESPONDER.", "award": 813},
+    {"id": 7, "title": "Consertando o Relógio", "description": "A TORRE DO RELÓGIO PRECISA DE\nCONSERTO, E O G PRECISA DA SUA\nAJUDA. VOCÊ CONSEGUE CONSERTÁ-LA\nA TEMPO?", "award": 815},
+    {"id": 8, "title": "Tremores Misteriosos", "description": "TREMORES TERRÍVEIS ESTÃO\nSACUDINDO TUDO PELA ILHA.\nVOCÊ CONSEGUE DESVENDAR ESSA\nAMEAÇA MISTERIOSA?", "award": 817},
+    {"id": 9, "title": "Operação: Esconde-Espião", "description": "VOCÊ FOI CONVOCADO PARA UMA\nMISSÃO ESPECIAL: ENCONTRAR O\nHERBERT. VOCÊ CONSEGUE DESCOBRIR\nONDE ELE ESTÁ?", "award": 819},
+    {"id": 10, "title": "Esquadrão Pinguim", "description": "A APS PRECISA DE VOCÊ PARA UMA\nMISSÃO ESPECIAL EM EQUIPE. VOCÊ\nSABE TRABALHAR BEM EM GRUPO?", "award": 822},
+    {"id": 11, "title": "O Vilão Vegetariano", "description": "FOI RELATADO OUTRO INCIDENTE\nENVOLVENDO HERBERT P. BEAR.\nVOCÊ ESTÁ PRONTO PARA O GRANDE\nCONFRONTO?", "award": 8007}
+]

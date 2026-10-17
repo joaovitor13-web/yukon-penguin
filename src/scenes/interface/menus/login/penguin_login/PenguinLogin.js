@@ -52,21 +52,21 @@ export default class PenguinLogin extends BaseScene {
         // backText
         const backText = this.add.text(760, 876, "", {});
         backText.setOrigin(0.5, 0.5);
-        backText.text = "Login as a different penguin";
+        backText.text = "Entrar com outro pinguim";
         backText.setStyle({ "align": "center", "color": "#ffffffff", "fixedWidth":400,"fontFamily": "Arial Narrow", "fontSize": "30px" });
         backText.setLineSpacing(25);
 
         // forgotText_1
         const forgotText_1 = this.add.text(929, 661, "", {});
         forgotText_1.setOrigin(0.5, 0.5);
-        forgotText_1.text = "Forget my penguin";
+        forgotText_1.text = "Esquecer meu pinguim";
         forgotText_1.setStyle({ "color": "#ffffffff", "fixedWidth":300,"fontFamily": "Arial Narrow", "fontSize": "30px" });
         forgotText_1.setLineSpacing(25);
 
         // forgotText
         const forgotText = this.add.text(929, 604, "", {});
         forgotText.setOrigin(0.5, 0.5);
-        forgotText.text = "Forgot your password?";
+        forgotText.text = "Esqueceu sua senha?";
         forgotText.setStyle({ "color": "#ffffffff", "fixedWidth":300,"fontFamily": "Arial Narrow", "fontSize": "30px" });
         forgotText.setLineSpacing(25);
 
@@ -76,14 +76,14 @@ export default class PenguinLogin extends BaseScene {
         // loginText
         const loginText = this.add.text(935, 487, "", {});
         loginText.setOrigin(0.5, 0.5);
-        loginText.text = "Login";
+        loginText.text = "Entrar";
         loginText.setStyle({ "align": "center", "color": "#ffffffff", "fixedWidth":100,"fontFamily": "Arial Narrow", "fontSize": "38px" });
         loginText.setLineSpacing(25);
 
         // passwordText
         const passwordText = this.add.text(783, 194, "", {});
         passwordText.setOrigin(0, 0.5);
-        passwordText.text = "Password:";
+        passwordText.text = "Senha:";
         passwordText.setStyle({ "align": "right", "color": "#000000ff", "fontFamily": "Arial Narrow", "fontSize": "30px" });
         passwordText.setLineSpacing(25);
 
@@ -203,7 +203,7 @@ export default class PenguinLogin extends BaseScene {
         let token = this.network.getToken(username)
         let onConnect
 
-        this.interface.showLoading(`Logging in ${username}`)
+        this.interface.showLoading(`Entrando como ${username}`)
         this.scene.stop()
 
         if (token && !this.passwordEdited) {

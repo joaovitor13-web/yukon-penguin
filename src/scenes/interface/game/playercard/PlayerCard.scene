@@ -123,7 +123,7 @@
                             "scope": "CLASS",
                             "originX": 0.5,
                             "originY": 0.5,
-                            "text": "Your Coins: 000000",
+                            "text": "Suas Moedas: 000000",
                             "fixedWidth": 300,
                             "align": "right",
                             "fontFamily": "Arial",

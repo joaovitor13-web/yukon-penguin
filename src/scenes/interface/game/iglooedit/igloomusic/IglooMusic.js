@@ -34,7 +34,7 @@ export default class IglooMusic extends BaseContainer {
         // title
         const title = scene.add.text(0, -297, "", {});
         title.setOrigin(0.5, 0);
-        title.text = "Music List";
+        title.text = "Lista de Músicas";
         title.setStyle({ "align": "center", "color": "#000", "fixedWidth":600,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(title);
 
@@ -107,77 +107,77 @@ export default class IglooMusic extends BaseContainer {
         blueButtonButton.callback = () => this.visible = false;
 
         // musicItem (prefab fields)
-        musicItem.name = "Brown Puffle Lab";
+        musicItem.name = "Laboratório do Puffle Marrom";
         musicItem.musicId = 305;
         musicItem.bold = false;
 
         // musicItem_1 (prefab fields)
-        musicItem_1.name = "Beware the Dragon";
+        musicItem_1.name = "Cuidado com o Dragão";
         musicItem_1.musicId = 286;
         musicItem_1.bold = true;
 
         // musicItem_2 (prefab fields)
-        musicItem_2.name = "Planet Y";
+        musicItem_2.name = "Planeta Y";
         musicItem_2.musicId = 38;
         musicItem_2.bold = false;
 
         // musicItem_3 (prefab fields)
-        musicItem_3.name = "Pre-historic Rock";
+        musicItem_3.name = "Rock Pré-Histórico";
         musicItem_3.musicId = 35;
         musicItem_3.bold = false;
 
         // musicItem_4 (prefab fields)
-        musicItem_4.name = "The Royal Court";
+        musicItem_4.name = "A Corte Real";
         musicItem_4.musicId = 233;
         musicItem_4.bold = true;
 
         // musicItem_5 (prefab fields)
-        musicItem_5.name = "Puffle Party";
+        musicItem_5.name = "Festa dos Puffles";
         musicItem_5.musicId = 259;
         musicItem_5.bold = false;
 
         // musicItem_6 (prefab fields)
-        musicItem_6.name = "In the Tower";
+        musicItem_6.name = "Na Torre";
         musicItem_6.musicId = 235;
         musicItem_6.bold = false;
 
         // musicItem_7 (prefab fields)
-        musicItem_7.name = "Norman Swarm";
+        musicItem_7.name = "Ataque Normando";
         musicItem_7.musicId = 42;
         musicItem_7.bold = false;
 
         // musicItem_8 (prefab fields)
-        musicItem_8.name = "To Battle!";
+        musicItem_8.name = "À Batalha!";
         musicItem_8.musicId = 236;
         musicItem_8.bold = true;
 
         // musicItem_9 (prefab fields)
-        musicItem_9.name = "Flipper Jig";
+        musicItem_9.name = "Dança das Nadadeiras";
         musicItem_9.musicId = 263;
         musicItem_9.bold = false;
 
         // musicItem_10 (prefab fields)
-        musicItem_10.name = "Icy Serenade";
+        musicItem_10.name = "Serenata Gelada";
         musicItem_10.musicId = 256;
         musicItem_10.bold = true;
 
         // musicItem_11 (prefab fields)
-        musicItem_11.name = "The Way of Sensei";
+        musicItem_11.name = "O Caminho do Sensei";
         musicItem_11.musicId = 24;
         musicItem_11.bold = false;
 
         // musicItem_12 (prefab fields)
-        musicItem_12.name = "Puffle Rescue: In the Cave";
+        musicItem_12.name = "Resgate de Puffles: Na Caverna";
         musicItem_12.musicId = 120;
         musicItem_12.bold = false;
 
         // musicItem_13 (prefab fields)
-        musicItem_13.name = "For Great Justice";
+        musicItem_13.name = "Pela Grande Justiça";
         musicItem_13.musicId = 32;
         musicItem_13.bold = false;
 
         // musicItem_14 (prefab fields)
-        musicItem_14.name = "No Music";
+        musicItem_14.name = "Sem Música";
         musicItem_14.musicId = 0;
         musicItem_14.bold = false;
 

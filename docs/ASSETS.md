@@ -92,3 +92,17 @@ com endereços relativos à mesma origem. O `crumbs.json` será gerado dentro de
 Phaser e Ruffle são obtidos pelo npm e copiados com seus recursos auxiliares
 para a distribuição local. URLs externas ainda presentes no pacote de mídia
 precisam ser identificadas nos testes antes de afirmar funcionamento offline.
+
+## Complemento Pizzatron 3000
+
+O pacote fixado de `yukon-assets` não contém a pizzaria nem o Pizzatron.
+A integração local acrescenta o minijogo a partir de
+[aprilx246/ClubPenguin](https://github.com/aprilx246/ClubPenguin/tree/5ede60affff8a762c03350f205c0a0747f725482/Pizzatron%203000).
+Os 14 arquivos necessários estão versionados em `resources/pizzatron/`, com
+manifesto SHA-256 próprio e [notas de origem](../resources/pizzatron/README.md).
+
+A montagem copia o complemento e gera as entradas 330 (Pizza) e 910 (Pizzatron)
+na distribuição. O importador e a mídia original do submódulo são preservados.
+O build Docker também inclui esse complemento, sem downloads extras do jogo.
+A sala de acesso é desenhada em Phaser pelo código local; não usa um pack de
+sala que esteja faltando no submódulo. Os textos do minijogo estão em inglês.

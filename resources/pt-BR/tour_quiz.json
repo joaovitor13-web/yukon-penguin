@@ -1,0 +1,16 @@
+[
+    {"question": "Qual destes jogos tem um tubarão?", "answers": {"Aventura de Jetpack": true, "Surfe no Carrinho": false, "Mancala": false, "Corrida de Trenó": false}},
+    {"question": "Qual item fica escondido num lugar diferente do catálogo de roupas todo mês?", "answers": {"O cachecol vermelho": false, "O tênis de corrida verde": false, "O capacete viking": true, "O chapéu de chef": false}},
+    {"question": "Qual destas salas não tem música de fundo?", "answers": {"Cafeteria": false, "Danceteria": false, "Pizzaria": false, "Pet Shop": true}},
+    {"question": "Qual objeto é jogado do caminhão na Fase 4 de Contadores de Grãos?", "answers": {"Um castiçal": false, "Um vaso de flores": true, "Um tijolo": false, "Uma chaleira": false}},
+    {"question": "Como o puffle rosa brinca?", "answers": {"Fazendo bolhas de sabão": false, "Pulando corda": true, "Voando com um boné de hélice": false, "Rolando uma bola": false}},
+    {"question": "Qual sala tem um relógio cuco?", "answers": {"Chalé de Esqui": true, "Pet Shop": false, "Pizzaria": false, "Caverna": false}},
+    {"question": "Quantas pistas a Corrida de Trenó tem?", "answers": {"2": false, "3": false, "4": true, "6": false}},
+    {"question": "Qual é o nome do navio do Capitão Rockhopper?", "answers": {"O Nadador Veloz": false, "O Viajante": false, "O Quebra-Gelo": false, "O Migrator": true}},
+    {"question": "Qual é o nome do peixe grande da Pescaria no Gelo?", "answers": {"Guppy": false, "Fofinho": false, "Mullet": true, "Blub": false}},
+    {"question": "Em qual sala você encontra edições antigas do Jornal do Pinguim?", "answers": {"Sala de Livros": false, "Sala da Caldeira": true, "Mina": false, "Cafeteria": false}},
+    {"question": "Como você pega um pin?", "answers": {"Comprando na Loja de Presentes": false, "Clicando nele": false, "Jogando uma bola de neve nele": false, "Andando em cima dele": true}},
+    {"question": "Qual destas salas NÃO tem um jogo?", "answers": {"Sala de Livros": false, "Pet Shop": false, "Sótão do Chalé": false, "Praia": true}},
+    {"question": "Qual cor de puffle pode pegar fogo?", "answers": {"Azul": false, "Preto": true, "Verde": false, "Vermelho": false}},
+    {"question": "Quantas moedas custa um fundo para o cartão do jogador?", "answers": {"20": false, "50": false, "60": true, "80": false}}
+]

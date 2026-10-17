@@ -39,7 +39,7 @@ export default class SenseiMatch extends BaseContainer {
         // message
         const message = scene.add.text(0, -20, "", {});
         message.setOrigin(0.5, 0.5);
-        message.text = "Waiting for more players";
+        message.text = "Aguardando mais jogadores";
         message.setStyle({ "align": "center", "fixedWidth":460,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(message);
 

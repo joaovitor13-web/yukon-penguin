@@ -46,7 +46,7 @@ export default class Missions extends BaseDynamicWidget {
 
         // chooseText
         const chooseText = scene.add.text(810, 126, "", {});
-        chooseText.text = "CLICK A TITLE ON THE LEFT TO\nCHOOSE A MISSION";
+        chooseText.text = "ESCOLHA UMA MISSÃO\nNA LISTA À ESQUERDA";
         chooseText.setStyle({ "color": "#e0ffcc", "fontFamily": "CPLCD", "fontSize": "38PX" });
         chooseText.setLineSpacing(7);
         this.add(chooseText);
@@ -96,13 +96,13 @@ export default class Missions extends BaseDynamicWidget {
 
         // trainingText
         const trainingText = scene.add.text(215, 452, "", {});
-        trainingText.text = "TRAINING";
+        trainingText.text = "TREINO";
         trainingText.setStyle({ "color": "#e0ffcc", "fontFamily": "CPLCD", "fontSize": "32px" });
         this.add(trainingText);
 
         // currentText
         const currentText = scene.add.text(215, 83, "", {});
-        currentText.text = "CURRENT";
+        currentText.text = "ATUAL";
         currentText.setStyle({ "color": "#e0ffcc", "fontFamily": "CPLCD", "fontSize": "32px" });
         this.add(currentText);
 

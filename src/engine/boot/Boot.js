@@ -14,7 +14,7 @@ export default class Boot extends BaseScene {
         this.scene.add('Load', Load)
 
         this.interface.loading.events.once('create', () => this.onLoadCreate())
-        this.interface.showLoading('Loading Content', true)
+        this.interface.showLoading('Carregando Conteúdo', true)
     }
 
     onLoadCreate() {

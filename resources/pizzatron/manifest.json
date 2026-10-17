@@ -1,0 +1,76 @@
+{
+  "source": "https://github.com/aprilx246/ClubPenguin/tree/5ede60affff8a762c03350f205c0a0747f725482/Pizzatron%203000",
+  "revision": "5ede60affff8a762c03350f205c0a0747f725482",
+  "files": [
+    {
+      "path": "media/flash/games/pizzatron/Pizzatron.swf",
+      "bytes": 498911,
+      "sha256": "4060faf6a8dc701f849081bcac32fd80bb12266ec9e343b035f0b6a2b0271ee7"
+    },
+    {
+      "path": "media/flash/games/pizzatron/files/en/locale.swf",
+      "bytes": 1762,
+      "sha256": "766c0b7000e48342bde5307e4c74d8b9dfbd039e2daf95b5ce8777457e2b3dca"
+    },
+    {
+      "path": "media/flash/games/pizzatron/files/hotsauce.swf",
+      "bytes": 162893,
+      "sha256": "16f0f3113ebf7181a0ad5924fbd650bc16245a3859ab2d75effd7050b1723d90"
+    },
+    {
+      "path": "media/flash/games/pizzatron/files/hotsauce_squeeze.swf",
+      "bytes": 162924,
+      "sha256": "47a5a2ccee88098148e39d3e5450c4f36efe65c5c21bf7f713c487d338aa0b2c"
+    },
+    {
+      "path": "media/flash/games/pizzatron/files/sauce.swf",
+      "bytes": 481,
+      "sha256": "e0cb78df361962903cca27677bf478cff7793061f61b5e9b0a590fc71baeb9c0"
+    },
+    {
+      "path": "media/flash/games/pizzatron/files/sauce_squeeze.swf",
+      "bytes": 475,
+      "sha256": "9685a66863e20624e06ebe083fd4453d213a0937205375e7a03d6aa1fcf00a46"
+    },
+    {
+      "path": "media/flash/games/pizzatron/files/title.swf",
+      "bytes": 6483,
+      "sha256": "05e963797efc149132d2f55277ead6ae996e2e8626da276fd28594c671a8180c"
+    },
+    {
+      "path": "media/flash/games/pizzatron/game.swf",
+      "bytes": 6785,
+      "sha256": "4953f25d39aed3baba3d6214f75bac6c3023ce92c833c5c9de71a1c5673773cc"
+    },
+    {
+      "path": "media/flash/games/pizzatron/lang/en/hotsauce.swf",
+      "bytes": 162893,
+      "sha256": "16f0f3113ebf7181a0ad5924fbd650bc16245a3859ab2d75effd7050b1723d90"
+    },
+    {
+      "path": "media/flash/games/pizzatron/lang/en/hotsauce_squeeze.swf",
+      "bytes": 162924,
+      "sha256": "47a5a2ccee88098148e39d3e5450c4f36efe65c5c21bf7f713c487d338aa0b2c"
+    },
+    {
+      "path": "media/flash/games/pizzatron/lang/en/locale.swf",
+      "bytes": 1762,
+      "sha256": "766c0b7000e48342bde5307e4c74d8b9dfbd039e2daf95b5ce8777457e2b3dca"
+    },
+    {
+      "path": "media/flash/games/pizzatron/lang/en/sauce.swf",
+      "bytes": 481,
+      "sha256": "e0cb78df361962903cca27677bf478cff7793061f61b5e9b0a590fc71baeb9c0"
+    },
+    {
+      "path": "media/flash/games/pizzatron/lang/en/sauce_squeeze.swf",
+      "bytes": 475,
+      "sha256": "9685a66863e20624e06ebe083fd4453d213a0937205375e7a03d6aa1fcf00a46"
+    },
+    {
+      "path": "media/flash/games/pizzatron/lang/en/title.swf",
+      "bytes": 6483,
+      "sha256": "05e963797efc149132d2f55277ead6ae996e2e8626da276fd28594c671a8180c"
+    }
+  ]
+}

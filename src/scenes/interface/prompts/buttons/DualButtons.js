@@ -23,14 +23,14 @@ export default class DualButtons extends BaseContainer {
         // text_2
         const text_2 = scene.add.text(110, 0, "", {});
         text_2.setOrigin(0.5, 0.5);
-        text_2.text = "No";
+        text_2.text = "Não";
         text_2.setStyle({ "align": "center", "fixedWidth":150,"fontFamily": "Arial Narrow", "fontSize": "40px", "fontStyle": "bold" });
         this.add(text_2);
 
         // text_1
         const text_1 = scene.add.text(-110, 0, "", {});
         text_1.setOrigin(0.5, 0.5);
-        text_1.text = "Yes";
+        text_1.text = "Sim";
         text_1.setStyle({ "align": "center", "fixedWidth":150,"fontFamily": "Arial Narrow", "fontSize": "40px", "fontStyle": "bold" });
         this.add(text_1);
 

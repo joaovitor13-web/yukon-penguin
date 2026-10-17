@@ -32,6 +32,8 @@ export default class Game extends Phaser.Game {
 
         registerNinePatchContainerFactory()
 
+        this.addFullscreenScaling(config.scale.max)
+
         // Add initial scenes
         this.scene.add('InterfaceController', InterfaceController)
         this.scene.add('MemoryManager', MemoryManager)
@@ -40,6 +42,22 @@ export default class Game extends Phaser.Game {
 
         // Start boot
         this.scene.add('Boot', Boot, true)
+    }
+
+    // Tela cheia da página (assets/scripts/lib/fullscreen.js): permite ampliar além do tamanho original
+    addFullscreenScaling(max) {
+        const update = () => {
+            if (document.fullscreenElement || document.webkitFullscreenElement) {
+                this.scale.displaySize.setMax()
+            } else {
+                this.scale.displaySize.setMax(max.width, max.height)
+            }
+
+            this.scale.refresh()
+        }
+
+        document.addEventListener('fullscreenchange', update)
+        document.addEventListener('webkitfullscreenchange', update)
     }
 
     logBanner() {

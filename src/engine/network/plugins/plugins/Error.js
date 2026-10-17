@@ -1,4 +1,5 @@
 import Plugin from '../Plugin'
+import translateServerMessage from '../../../../data/serverMessages'
 
 
 export default class Error extends Plugin {
@@ -20,11 +21,11 @@ export default class Error extends Plugin {
             return this.customHandlers[args.error]()
         }
 
-        this.interface.prompt.showError(args.error)
+        this.interface.prompt.showError(translateServerMessage(args.error))
     }
 
     fullRoom() {
-        this.interface.prompt.showError('Sorry this room is currently full', 'Okay', () => {
+        this.interface.prompt.showError(translateServerMessage('Sorry this room is currently full'), 'Ok', () => {
             this.interface.showInterface()
 
             this.interface.prompt.error.visible = false

@@ -43,7 +43,7 @@
                     "y": 585,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "launch mission",
+                    "text": "iniciar missão",
                     "fixedWidth": 300,
                     "lineSpacing": -4,
                     "align": "center",

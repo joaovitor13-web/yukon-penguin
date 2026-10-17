@@ -33,7 +33,7 @@
             "x": 1095,
             "y": 908,
             "originY": 0.5,
-            "text": "Ultimate safe chat",
+            "text": "Chat Ultrasseguro",
             "fixedWidth": 200,
             "fontFamily": "Arial Narrow",
             "fontSize": "28px"
@@ -59,7 +59,7 @@
             "x": 645,
             "y": 908,
             "originY": 0.5,
-            "text": "Amount of penguins online",
+            "text": "Pinguins on-line",
             "fixedWidth": 300,
             "fontFamily": "Arial Narrow",
             "fontSize": "28px"
@@ -84,7 +84,7 @@
             "x": 277,
             "y": 908,
             "originY": 0.5,
-            "text": "Buddies online",
+            "text": "Amigos on-line",
             "fixedWidth": 200,
             "fontFamily": "Arial Narrow",
             "fontSize": "28px"
@@ -124,7 +124,7 @@
             "y": 85,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "YOUR SUGGESTED SERVERS",
+            "text": "SERVIDORES SUGERIDOS",
             "fixedWidth": 1200,
             "align": "center",
             "fontFamily": "CCFaceFront",

@@ -112,7 +112,7 @@ export default class Inventory extends BaseContainer {
         // active_text
         const active_text = scene.add.text(130, 553, "", {});
         active_text.setOrigin(0.5, 0.5);
-        active_text.text = "All Items";
+        active_text.text = "Todos os Itens";
         active_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         container.add(active_text);
 

@@ -6,6 +6,7 @@ import Button from "../../../components/Button";
 import Animation from "../../../components/Animation";
 import Zone from "../../../components/Zone";
 /* START-USER-IMPORTS */
+import fitFontSize from '@engine/utils/text/fitFontSize'
 /* END-USER-IMPORTS */
 
 export default class Phone extends BaseWidget {
@@ -46,14 +47,14 @@ export default class Phone extends BaseWidget {
         // hqText
         const hqText = scene.add.text(0, 125, "", {});
         hqText.setOrigin(0.5, 0.5);
-        hqText.text = "Visit HQ";
+        hqText.text = "Visitar QG";
         hqText.setStyle({ "align": "center", "fixedWidth":160,"fontFamily": "Arial Narrow", "fontSize": "28px", "fontStyle": "bold" });
         this.add(hqText);
 
         // teleportText
         const teleportText = scene.add.text(0, 41, "", {});
         teleportText.setOrigin(0.5, 0.5);
-        teleportText.text = "Teleport";
+        teleportText.text = "Teleporte";
         teleportText.setStyle({ "align": "center", "fixedWidth":160,"fontFamily": "Arial Narrow", "fontSize": "28px", "fontStyle": "bold" });
         this.add(teleportText);
 
@@ -83,7 +84,7 @@ export default class Phone extends BaseWidget {
         const screenText = scene.add.text(0, -48, "", {});
         screenText.scaleX = 0.66;
         screenText.setOrigin(0.5, 0.5);
-        screenText.text = "the town";
+        screenText.text = "o centro";
         screenText.setStyle({ "align": "center", "color": "#000", "fixedWidth":300,"fontFamily": "CPLCD", "fontSize": "48px" });
         this.add(screenText);
 
@@ -217,6 +218,8 @@ export default class Phone extends BaseWidget {
     updateLocation(location) {
         this.currentLocation = location
         this.screenText.text = this.currentLocationData.name
+
+        fitFontSize(this.screenText, 48)
     }
 
     joinRoom(roomId) {

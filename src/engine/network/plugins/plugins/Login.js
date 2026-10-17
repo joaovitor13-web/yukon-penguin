@@ -1,4 +1,5 @@
 import Plugin from '../Plugin'
+import translateServerMessage from '../../../../data/serverMessages'
 
 
 export default class Login extends Plugin {
@@ -35,7 +36,7 @@ export default class Login extends Plugin {
     onLoginError(message) {
         this.loginScene.events.emit('hideinput')
 
-        this.interface.prompt.showError(message, 'Okay', () => {
+        this.interface.prompt.showError(translateServerMessage(message), 'Ok', () => {
             this.loginScene.events.emit('showinput')
 
             this.interface.prompt.error.visible = false

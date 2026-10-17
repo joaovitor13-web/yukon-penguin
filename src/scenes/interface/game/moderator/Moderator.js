@@ -43,21 +43,21 @@ export default class Moderator extends BaseContainer {
         // buttonText
         const buttonText = scene.add.text(0, 127, "", {});
         buttonText.setOrigin(0.5, 0.5);
-        buttonText.text = "Become a Secret Agent";
+        buttonText.text = "Seja um Agente Secreto";
         buttonText.setStyle({ "fontFamily": "Arial Narrow", "fontSize": "40px", "fontStyle": "bold" });
         this.add(buttonText);
 
         // text
         const text = scene.add.text(-2, -13, "", {});
         text.setOrigin(0.5, 0.5);
-        text.text = "Please click a player to Ignore or\nReport the player to a moderator.";
+        text.text = "Clique num jogador para ignorar\nou denunciar ao moderador.";
         text.setStyle({ "align": "center", "color": "#000", "fixedWidth":400,"fixedHeight":80,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(text);
 
         // title
         const title = scene.add.text(0, -147, "", {});
         title.setOrigin(0.5, 0);
-        title.text = "MODERATOR ONLINE";
+        title.text = "MODERADOR ON-LINE";
         title.setStyle({ "align": "center", "fixedWidth":600,"fontFamily": "CCFaceFront", "fontSize": "40px", "fontStyle": "italic", "stroke": "#003366", "strokeThickness":9,"shadow.color": "#003366", "shadow.blur":3,"shadow.stroke":true});
         this.add(title);
 

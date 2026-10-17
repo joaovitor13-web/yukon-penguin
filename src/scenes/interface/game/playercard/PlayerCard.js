@@ -80,7 +80,7 @@ export default class PlayerCard extends BaseWidget {
         // coins
         const coins = scene.add.text(0, 0, "", {});
         coins.setOrigin(0.5, 0.5);
-        coins.text = "Your Coins: 000000";
+        coins.text = "Suas Moedas: 000000";
         coins.setStyle({ "align": "right", "color": "#000000ff", "fixedWidth":300,"fontFamily": "Arial", "fontSize": "24px" });
         stats.add(coins);
 
@@ -251,7 +251,7 @@ export default class PlayerCard extends BaseWidget {
     }
 
     setCoins(coins) {
-        this.coins.text = `Your Coins: ${coins}`
+        this.coins.text = `Suas Moedas: ${coins}`
     }
 
     updateInventory() {

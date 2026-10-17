@@ -30,7 +30,7 @@ export default class Settings extends BaseContainer {
         // buddies
         const buddies = scene.add.text(69, 173, "", {});
         buddies.setOrigin(0.5, 0.5);
-        buddies.text = "88/100 Buddies";
+        buddies.text = "88/100 Amigos";
         buddies.setStyle({ "color": "#000000ff", "fixedWidth":300,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(buddies);
 
@@ -45,35 +45,35 @@ export default class Settings extends BaseContainer {
         // account
         const account = scene.add.text(21, 66, "", {});
         account.setOrigin(0.5, 0.5);
-        account.text = "Manage Account";
+        account.text = "Gerenciar Conta";
         account.setStyle({ "align": "center", "color": "#ffffffff", "fixedWidth":562,"fontFamily": "Arial Narrow", "fontSize": "40px", "fontStyle": "bold" });
         this.add(account);
 
         // music
         const music = scene.add.text(131, -37, "", {});
         music.setOrigin(0.5, 0.5);
-        music.text = "Mute Music";
+        music.text = "Desligar Música";
         music.setStyle({ "color": "#000000ff", "fixedWidth":348,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(music);
 
         // age
         const age = scene.add.text(0, -108, "", {});
         age.setOrigin(0.5, 0.5);
-        age.text = "Your penguin is 0 days old";
+        age.text = "Seu pinguim tem 0 dias de idade";
         age.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":600,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(age);
 
         // server
         const server = scene.add.text(0, -156, "", {});
         server.setOrigin(0.5, 0.5);
-        server.text = "You're on Server Name";
+        server.text = "Você está no servidor";
         server.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":600,"fontFamily": "Arial Narrow", "fontSize": "30px" });
         this.add(server);
 
         // settings
         const settings = scene.add.text(0, -238, "", {});
         settings.setOrigin(0.5, 0.5);
-        settings.text = "SETTINGS";
+        settings.text = "CONFIGURAÇÕES";
         settings.setStyle({ "align": "center", "fixedWidth":600,"fontFamily": "CCFaceFront", "fontSize": "40px", "fontStyle": "bold italic", "stroke": "#003366", "strokeThickness":10});
         this.add(settings);
 
@@ -120,9 +120,9 @@ export default class Settings extends BaseContainer {
             this.checkbox.setTexture('login', 'checkbox-active')
         }
 
-        server.text = `You're on ${this.network.worldName}`
-        age.text = `Your penguin is ${this.world.client.daysOld} days old`
-        buddies.text = `${this.world.client.buddies.length}/100 Buddies`
+        server.text = `Você está no servidor ${this.network.worldName}`
+        age.text = `Seu pinguim tem ${this.world.client.daysOld} dias de idade`
+        buddies.text = `${this.world.client.buddies.length}/100 Amigos`
 
         /* END-USER-CTR-CODE */
     }

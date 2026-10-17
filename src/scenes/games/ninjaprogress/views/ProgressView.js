@@ -49,7 +49,7 @@ export default class ProgressView extends BaseContainer {
         // cardsText
         const cardsText = scene.add.text(-81, 254, "", {});
         cardsText.setOrigin(0.5, 0.5);
-        cardsText.text = "VIEW YOUR\nCARDS";
+        cardsText.text = "VER SUAS\nCARTAS";
         cardsText.setStyle({ "align": "center", "color": "#736357", "fixedWidth":140,"fontFamily": "CCFaceFront", "fontSize": "20px", "fontStyle": "bold italic" });
         this.add(cardsText);
 
@@ -70,14 +70,14 @@ export default class ProgressView extends BaseContainer {
         // nextText
         const nextText = scene.add.text(244, -42, "", {});
         nextText.setOrigin(0.5, 1);
-        nextText.text = "Next Belt";
+        nextText.text = "Próxima Faixa";
         nextText.setStyle({ "align": "right", "color": "#333", "fixedWidth":500,"fontFamily": "Burbank Small", "fontSize": "26px", "fontStyle": "bold" });
         this.add(nextText);
 
         // currentText
         const currentText = scene.add.text(-256, -42, "", {});
         currentText.setOrigin(0.5, 1);
-        currentText.text = "Current Belt";
+        currentText.text = "Faixa Atual";
         currentText.setStyle({ "color": "#333", "fixedWidth":500,"fontFamily": "Burbank Small", "fontSize": "32px", "fontStyle": "bold" });
         this.add(currentText);
 
@@ -107,7 +107,7 @@ export default class ProgressView extends BaseContainer {
         // senseiText
         const senseiText = scene.add.text(0, 20, "", {});
         senseiText.setOrigin(0.5, 0.5);
-        senseiText.text = "Well done, grasshopper. You have earned your\nblack belt. Take the next step of your training\njourney and challenge Sensei to become a ninja.";
+        senseiText.text = "Muito bem, gafanhoto. Você conquistou\nsua faixa preta. Siga no seu treinamento\ne desafie o Sensei para se tornar ninja.";
         senseiText.setStyle({ "align": "center", "color": "#333", "fixedWidth":600,"fontFamily": "Burbank Small", "fontSize": "26px" });
         senseiText.setLineSpacing(8);
         sensei.add(senseiText);
@@ -124,7 +124,7 @@ export default class ProgressView extends BaseContainer {
         // hideoutText
         const hideoutText = scene.add.text(132, 10, "", {});
         hideoutText.setOrigin(0.5, 0.5);
-        hideoutText.text = "Congratulations, ninja! You are a wise Card-Jitsu\nmaster and you now have access to the Ninja Hideout.";
+        hideoutText.text = "Parabéns, ninja! Você é um sábio mestre do Card-Jitsu\ne agora tem acesso ao Esconderijo Ninja.";
         hideoutText.setStyle({ "align": "center", "color": "#333", "fixedWidth":800,"fontFamily": "Burbank Small", "fontSize": "26px" });
         hideoutText.setLineSpacing(8);
         hideout.add(hideoutText);

@@ -18,7 +18,7 @@ export default class CardJitsuHelp extends BaseContainer {
         // text
         const text = scene.add.text(0, -275, "", {});
         text.setOrigin(0.5, 0.5);
-        text.text = "If tied, the highest number wins.";
+        text.text = "Em caso de empate, vence o número mais alto.";
         text.setStyle({ "align": "center", "color": "#333", "fixedWidth":828,"fixedHeight":50,"fontFamily": "Burbank Small", "fontSize": "32px" });
         this.add(text);
 

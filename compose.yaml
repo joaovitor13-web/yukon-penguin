@@ -54,6 +54,16 @@ services:
       timeout: 3s
       retries: 10
 
+  registration:
+    <<: *game
+    entrypoint: [node, local/registration.cjs]
+    command: []
+    healthcheck:
+      test: [CMD, node, local/health.cjs, '6113']
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
   web:
     build:
       context: .
@@ -64,6 +74,8 @@ services:
       login:
         condition: service_healthy
       world:
+        condition: service_healthy
+      registration:
         condition: service_healthy
     networks: [frontend, backend]
     restart: unless-stopped

@@ -24,7 +24,7 @@ export default class Servers extends BaseScene {
         // text_2
         const text_2 = this.add.text(1095, 908, "", {});
         text_2.setOrigin(0, 0.5);
-        text_2.text = "Ultimate safe chat";
+        text_2.text = "Chat Ultrasseguro";
         text_2.setStyle({ "fixedWidth":200,"fontFamily": "Arial Narrow", "fontSize": "28px" });
 
         // safe_small
@@ -34,7 +34,7 @@ export default class Servers extends BaseScene {
         // text_1
         const text_1 = this.add.text(645, 908, "", {});
         text_1.setOrigin(0, 0.5);
-        text_1.text = "Amount of penguins online";
+        text_1.text = "Pinguins on-line";
         text_1.setStyle({ "fixedWidth":300,"fontFamily": "Arial Narrow", "fontSize": "28px" });
 
         // bar_full_small
@@ -43,7 +43,7 @@ export default class Servers extends BaseScene {
         // text
         const text = this.add.text(277, 908, "", {});
         text.setOrigin(0, 0.5);
-        text.text = "Buddies online";
+        text.text = "Amigos on-line";
         text.setStyle({ "fixedWidth":200,"fontFamily": "Arial Narrow", "fontSize": "28px" });
 
         // online_small
@@ -57,7 +57,7 @@ export default class Servers extends BaseScene {
         // suggested
         const suggested = this.add.text(760, 85, "", {});
         suggested.setOrigin(0.5, 0.5);
-        suggested.text = "YOUR SUGGESTED SERVERS";
+        suggested.text = "SERVIDORES SUGERIDOS";
         suggested.setStyle({ "align": "center", "fixedWidth":1200,"fontFamily": "CCFaceFront", "fontSize": "40px", "fontStyle": "bold italic", "stroke": "#003366", "strokeThickness":10,"shadow.color": "#000000ff" });
 
         this.events.emit("scene-awake");
@@ -95,7 +95,7 @@ export default class Servers extends BaseScene {
 
     onServerClick(world, username, key, isFull) {
         if (isFull) {
-            return this.interface.prompt.showError('Sorry this server is full. Please select another server.')
+            return this.interface.prompt.showError('Desculpe, este servidor está cheio. Escolha outro servidor.')
         }
 
         this.interface.showLoading(`${this.getString('joining')} ${world}`)

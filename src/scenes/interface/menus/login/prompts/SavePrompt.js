@@ -53,21 +53,21 @@ export default class SavePrompt extends BaseContainer {
         // text_1
         const text_1 = scene.add.text(-303, 285, "", {});
         text_1.setOrigin(0.5, 0.5);
-        text_1.text = "Save Password";
+        text_1.text = "Salvar Senha";
         text_1.setStyle({ "align": "center", "fixedWidth":300,"fontFamily": "Burbank Small", "fontSize": "28px", "fontStyle": "bold" });
         this.add(text_1);
 
         // text_2
         const text_2 = scene.add.text(21, 285, "", {});
         text_2.setOrigin(0.5, 0.5);
-        text_2.text = "Don't Save\nPassword";
+        text_2.text = "Não Salvar\nSenha";
         text_2.setStyle({ "align": "center", "fixedWidth":300,"fontFamily": "Burbank Small", "fontSize": "28px", "fontStyle": "bold" });
         this.add(text_2);
 
         // text_3
         const text_3 = scene.add.text(343, 285, "", {});
         text_3.setOrigin(0.5, 0.5);
-        text_3.text = "Learn More";
+        text_3.text = "Saiba Mais";
         text_3.setStyle({ "align": "center", "fixedWidth":300,"fontFamily": "Burbank Small", "fontSize": "24px", "fontStyle": "bold" });
         this.add(text_3);
 

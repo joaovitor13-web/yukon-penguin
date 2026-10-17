@@ -270,17 +270,17 @@ export default class Buttons extends BaseContainer {
     }
 
     showRequestBuddy() {
-        let text = `Would you like to add ${this.username}\nto your buddy list?`
+        let text = `Você gostaria de adicionar ${this.username}\nà sua lista de amigos?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('buddy_request', { id: this.parentContainer.id })
 
-            this.interface.prompt.showWindow('Request Sent', 'single')
+            this.interface.prompt.showWindow('Pedido enviado', 'single')
         })
     }
 
     showRemoveBuddy() {
-        let text = `Would you like to remove ${this.username}\nfrom your buddy list?`
+        let text = `Você gostaria de remover ${this.username}\nda sua lista de amigos?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('buddy_remove', { id: this.parentContainer.id })
@@ -290,27 +290,27 @@ export default class Buttons extends BaseContainer {
     }
 
     showAddIgnore() {
-        let text = `Would you like to add ${this.username}\nto your ignore list?`
+        let text = `Você gostaria de adicionar ${this.username}\nà sua lista de ignorados?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('ignore_add', { id: this.parentContainer.id })
 
-            this.interface.prompt.showWindow('Done', 'single')
+            this.interface.prompt.showWindow('Pronto', 'single')
         })
     }
 
     showRemoveIgnore() {
-        let text = `Would you like to remove ${this.username}\nfrom your ignore list?`
+        let text = `Você gostaria de remover ${this.username}\nda sua lista de ignorados?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('ignore_remove', { id: this.parentContainer.id })
 
-            this.interface.prompt.showWindow('Done', 'single')
+            this.interface.prompt.showWindow('Pronto', 'single')
         })
     }
 
     showMute() {
-        let text = `Mute Player: ${this.username}`
+        let text = `Silenciar Jogador: ${this.username}`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('mute_player', { id: this.parentContainer.id })
@@ -320,7 +320,7 @@ export default class Buttons extends BaseContainer {
     }
 
     showKick() {
-        let text = `Kick Player: ${this.username}`
+        let text = `Expulsar Jogador: ${this.username}`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('kick_player', { id: this.parentContainer.id })
@@ -330,7 +330,7 @@ export default class Buttons extends BaseContainer {
     }
 
     showBan() {
-        let text = `Ban Player: ${this.username}`
+        let text = `Banir Jogador: ${this.username}`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('ban_player', { id: this.parentContainer.id })

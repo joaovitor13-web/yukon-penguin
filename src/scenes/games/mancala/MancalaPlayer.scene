@@ -39,7 +39,7 @@
                     "components": [],
                     "x": 52,
                     "originY": 0.5,
-                    "text": "Waiting for Player",
+                    "text": "Esperando Jogador",
                     "fontFamily": "Arial",
                     "fontSize": "24px"
                 },
@@ -71,7 +71,7 @@
                     "originX": 1,
                     "originY": 0.5,
                     "visible": false,
-                    "text": "Score: 0",
+                    "text": "Pontos: 0",
                     "align": "right",
                     "fontFamily": "Arial",
                     "fontSize": "24px",

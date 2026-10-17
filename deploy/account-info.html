@@ -1,7 +1,96 @@
 <!doctype html>
-<html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Conta do jogo</title>
-<style>body{font:20px system-ui;max-width:40rem;margin:10vh auto;padding:24px;line-height:1.6;background:#edf7ff;color:#163854}a{color:#05629e}</style>
-<h1>Sua conta no jogo</h1>
-<p>Peça ao responsável pelo servidor da casa para criar seu pinguim. Cada pessoa pode ter seu próprio nome e senha.</p>
-<p>Seu progresso fica salvo no servidor.</p><a href="/">Voltar ao jogo</a></html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Crie seu pinguim · Yukon</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; font: 16px/1.5 system-ui, sans-serif; background: #edf7ff; color: #163854; }
+        main { width: 100%; max-width: 460px; padding: 32px; border: 1px solid #c8dfef; border-radius: 20px; background: white; box-shadow: 0 12px 40px #1638540d; }
+        h1 { margin: 0 0 8px; font-size: 30px; line-height: 1.2; }
+        .intro { color: #526b7c; margin-bottom: 24px; }
+        label { display: block; font-weight: 600; margin-top: 18px; }
+        input { display: block; width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #a9c3d5; border-radius: 8px; font: inherit; }
+        input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #eeae30; outline-offset: 3px; }
+        small { display: block; color: #526b7c; margin-top: 5px; }
+        button { width: 100%; margin-top: 24px; padding: 13px; border: 0; border-radius: 8px; background: #05629e; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+        button:disabled { opacity: .65; cursor: wait; }
+        a { color: #05629e; }
+        .back { display: block; text-align: center; margin-top: 20px; }
+        #message { margin: 16px 0 0; }
+        #message[data-state="error"] { color: #a32626; }
+        #message[data-state="success"] { color: #17623b; }
+        [hidden] { display: none !important; }
+        @media (max-width: 400px) { main { padding: 22px; } }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Crie seu pinguim</h1>
+    <p class="intro">Escolha seu nome e sua senha para entrar no mundo Blizzard. Seu progresso fica salvo no servidor.</p>
+    <form id="signup">
+        <label for="username">Nome do pinguim</label>
+        <input id="username" name="username" autocomplete="username" minlength="4" maxlength="12" pattern="[A-Za-z0-9 ]{4,12}" required aria-describedby="name-help" autocapitalize="none" spellcheck="false">
+        <small id="name-help">De 4 a 12 letras sem acento, números ou espaços internos.</small>
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required aria-describedby="password-help">
+        <small id="password-help">Pelo menos 8 caracteres, até 72 bytes. Use uma senha exclusiva para o jogo.</small>
+        <label for="confirmation">Confirme sua senha</label>
+        <input id="confirmation" name="confirmation" type="password" autocomplete="new-password" minlength="8" maxlength="72" required>
+        <button type="submit">Criar minha conta</button>
+    </form>
+    <p id="message" role="status" aria-live="polite" tabindex="-1"></p>
+    <a class="back" href="/">Voltar ao jogo</a>
+    <noscript>Ative o JavaScript do navegador para criar sua conta.</noscript>
+</main>
+<script>
+    const form = document.getElementById('signup');
+    const message = document.getElementById('message');
+    const button = form.querySelector('button');
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+        const { username, password, confirmation } = form.elements;
+        message.dataset.state = 'error';
+        if (username.value.trim() !== username.value || password.value.trim() !== password.value) {
+            message.textContent = 'Nome e senha não podem começar ou terminar com espaços.';
+            return;
+        }
+        if (new TextEncoder().encode(password.value).length > 72) {
+            message.textContent = 'A senha deve ter até 72 bytes. Caracteres acentuados podem ocupar mais de um byte.';
+            return;
+        }
+        if (password.value !== confirmation.value) {
+            message.textContent = 'As senhas não coincidem.';
+            confirmation.focus();
+            return;
+        }
+        button.disabled = true;
+        button.textContent = 'Criando sua conta…';
+        message.textContent = '';
+        try {
+            const response = await fetch('/api/accounts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username.value, password: password.value, confirmation: confirmation.value })
+            });
+            const result = await response.json().catch(() => ({}));
+            message.textContent = result.message || (response.status === 429
+                ? 'Muitas tentativas. Aguarde um minuto e tente novamente.'
+                : 'Não foi possível criar a conta. Tente novamente em instantes.');
+            if (response.ok) {
+                message.dataset.state = 'success';
+                form.reset();
+                form.hidden = true;
+                message.focus();
+            }
+        } catch {
+            message.textContent = 'Não foi possível conectar ao servidor. Confira sua conexão e tente novamente.';
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Criar minha conta';
+        }
+    });
+</script>
+</body>
+</html>

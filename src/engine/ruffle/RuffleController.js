@@ -5,6 +5,9 @@ const basePath = 'assets/media/flash/'
 const gamesPath = `${basePath}games/`
 
 const keys = [
+    'getLocalizedFrame',
+    'hideLoading',
+    'startGameMusic',
     'getGamesPath',
     'getMyPlayer',
     'getMyPlayerHex',
@@ -29,6 +32,8 @@ export default class RuffleController extends BaseScene {
 
         // Object accessed from Flash ExternalInterface
         window.ruffle = {
+            getLocalizedFrame: () => 1,
+            hideLoading: () => this.interface.hideLoading(),
             getKeys: () => {
                 return keys
             },

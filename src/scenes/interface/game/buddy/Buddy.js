@@ -28,7 +28,7 @@ export default class Buddy extends BaseWidget {
         // text
         const text = scene.add.text(0, -236, "", {});
         text.setOrigin(0.5, 0.5);
-        text.text = "Your Friends";
+        text.text = "Seus Amigos";
         text.setStyle({ "align": "center", "color": "#000000", "fixedWidth":420,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(text);
 
@@ -148,21 +148,21 @@ export default class Buddy extends BaseWidget {
         // buddy_button (components)
         const buddy_buttonButton = new Button(buddy_button);
         buddy_buttonButton.spriteName = "blue-button";
-        buddy_buttonButton.callback = () => this.switchList('buddies', 'Your Friends');
+        buddy_buttonButton.callback = () => this.switchList('buddies', 'Seus Amigos');
         const buddy_buttonShowHint = new ShowHint(buddy_button);
         buddy_buttonShowHint.text = "buddy_hint";
 
         // profile_button (components)
         const profile_buttonButton = new Button(profile_button);
         profile_buttonButton.spriteName = "blue-button";
-        profile_buttonButton.callback = () => this.switchList('room', 'Users in Room');
+        profile_buttonButton.callback = () => this.switchList('room', 'Pinguins na Sala');
         const profile_buttonShowHint = new ShowHint(profile_button);
         profile_buttonShowHint.text = "online_hint";
 
         // igloo_button (components)
         const igloo_buttonButton = new Button(igloo_button);
         igloo_buttonButton.spriteName = "blue-button";
-        igloo_buttonButton.callback = () => this.switchList('ignores', 'Ignore List');
+        igloo_buttonButton.callback = () => this.switchList('ignores', 'Lista de Ignorados');
         const igloo_buttonShowHint = new ShowHint(igloo_button);
         igloo_buttonShowHint.text = "ignore_hint";
 

@@ -547,13 +547,13 @@ export default class Main extends BaseScene {
     }
 
     showAccept(request) {
-        let text = `${request.username} is now your buddy!`
+        let text = `${request.username} agora é seu amigo!`
 
         this.interface.prompt.showWindow(text, 'single')
     }
 
     showRequest(request) {
-        let text = `${request.username} has asked to be your buddy.\nDo you accept?`
+        let text = `${request.username} quer ser seu amigo.\nVocê aceita?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.network.send('buddy_accept', { id: request.id })
@@ -576,7 +576,7 @@ export default class Main extends BaseScene {
     }
 
     showOnlinePopup(username) {
-        let text = `${username} is online`
+        let text = `${username} está on-line`
         let texture = (text.length > 18) ? 'buddy-online-large' : 'buddy-online'
 
         this.popupText.text = text

@@ -238,7 +238,7 @@ export default class IglooScene extends RoomScene {
             return
         }
 
-        let text = 'Are you sure you want to change your igloo? Your flooring will be lost. Igloo items will be saved in your inventory.'
+        let text = 'Tem certeza de que quer trocar de iglu? O piso será perdido. Os móveis serão guardados no seu inventário.'
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.interface.showLoading(this.getString('joining', 'igloo'))

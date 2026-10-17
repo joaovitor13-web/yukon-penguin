@@ -292,7 +292,7 @@ export default class IglooEdit extends BaseScene {
             return
         }
 
-        let text = 'Would you like to open your igloo?\nThis will add your igloo to the map.'
+        let text = 'Você gostaria de abrir seu iglu?\nIsso vai colocar seu iglu no mapa.'
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.world.client.iglooOpen = true

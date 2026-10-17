@@ -363,7 +363,7 @@ export default class IglooMap extends BaseContainer {
 
         // open
         const open = scene.add.text(0, 126, "", {});
-        open.text = "Open Igloos";
+        open.text = "Iglus Abertos";
         open.setStyle({ "color": "#999", "fontFamily": "Burbank Small", "fontSize": "22px", "fontStyle": "bold" });
         panel.add(open);
 

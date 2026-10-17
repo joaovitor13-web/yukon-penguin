@@ -1,0 +1,47 @@
+[
+    {"name": "Cartões em Destaque", "postcards": [
+        {"id": 43, "subject": "Puffles Felizes"},
+        {"id": 36, "subject": "Você é Engraçado"},
+        {"id": 62, "subject": "Vamos Sair Juntos"},
+        {"id": 217, "subject": "Vamos Explorar!"}
+    ]},
+    {"name": "Amizade", "postcards": [
+        {"id": 32, "subject": "Amigo Incrível"},
+        {"id": 57, "subject": "Seja Meu Amigo"},
+        {"id": 56, "subject": "Oi!"},
+        {"id": 201, "subject": "Obrigado"},
+        {"id": 200, "subject": "História na Fogueira"},
+        {"id": 26, "subject": "Gostei da Sua Roupa"},
+        {"id": 88, "subject": "Meu Tour"},
+        {"id": 25, "subject": "Roupa Demais"},
+        {"id": 64, "subject": "Passando para Dizer Oi"},
+        {"id": 24, "subject": "Nome Legal"},
+        {"id": 35, "subject": "Quanto Tempo!"}
+    ]},
+    {"name": "Puffles", "postcards": [
+        {"id": 231, "subject": "Puffles Legais"},
+        {"id": 222, "subject": "Traga seus puffles!"},
+        {"id": 219, "subject": "Melhores Amigos para Sempre!"}
+    ]},
+    {"name": "Iglu", "postcards": [
+        {"id": 202, "subject": "Venha Ver Meu Iglu"},
+        {"id": 1, "subject": "Iglu Redecorado"},
+        {"id": 27, "subject": "Festa no Meu Iglu"},
+        {"id": 61, "subject": "Festa de Iglu"}
+    ]},
+    {"name": "Jogos", "postcards": [
+        {"id": 59, "subject": "Ligue Quatro"},
+        {"id": 206, "subject": "Livro de Selos"},
+        {"id": 19, "subject": "Ótimo Jogo"},
+        {"id": 10, "subject": "Mancala"},
+        {"id": 52, "subject": "Montanha de Esqui"},
+        {"id": 218, "subject": "Meu Livro de Selos"}
+    ]},
+    {"name": "Salas", "postcards": [
+        {"id": 20, "subject": "Fortes de Neve"},
+        {"id": 30, "subject": "Lago Escondido"},
+        {"id": 29, "subject": "Incline o Iceberg"},
+        {"id": 55, "subject": "Dojo"},
+        {"id": 21, "subject": "Piscina"}
+    ]}
+]

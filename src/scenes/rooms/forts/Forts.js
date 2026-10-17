@@ -131,7 +131,7 @@ export default class Forts extends RoomScene {
         clockText.scaleX = 0.76;
         clockText.angle = -3.33;
         clockText.setOrigin(0.5, 0.5);
-        clockText.text = "CLUB PENGUIN\nTIME ZONE";
+        clockText.text = "HORÁRIO DO\nCLUB PENGUIN";
         clockText.setStyle({ "align": "center", "color": "#000", "fixedWidth":250,"fontFamily": "CCComiccrazy", "fontSize": "24px" });
         clockText.setLineSpacing(2);
 

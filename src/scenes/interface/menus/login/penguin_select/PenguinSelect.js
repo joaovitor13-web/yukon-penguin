@@ -51,7 +51,7 @@ export default class PenguinSelect extends BaseScene {
         // backText
         const backText = this.add.text(760, 876, "", {});
         backText.setOrigin(0.5, 0.5);
-        backText.text = "Login as a different penguin";
+        backText.text = "Entrar com outro pinguim";
         backText.setStyle({ "align": "center", "color": "#ffffffff", "fixedWidth":400,"fontFamily": "Arial Narrow", "fontSize": "30px" });
         backText.setLineSpacing(25);
 

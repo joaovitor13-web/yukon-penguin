@@ -20,6 +20,13 @@ depende também de o serviço Docker estar habilitado.
 
 ## Contas individuais
 
+Os jogadores podem criar suas contas em `/create/`, pelo botão
+“Create a free account now” do jogo. O formulário pede nome, senha e confirmação.
+O cadastro usa o banco do jogo, cria contas comuns e preserva o gatilho de
+inicialização de iglu, inventário e cartão. Não exige e-mail, PHP ou captcha.
+
+Os comandos administrativos continuam disponíveis como alternativa:
+
 ```bash
 bash scripts/local.sh create "Pinguim1"
 bash scripts/local.sh create "Pinguim2"
@@ -39,8 +46,10 @@ o mundo; os jogadores precisarão entrar novamente:
 docker compose restart world
 ```
 
-O botão de cadastro abre uma mensagem explicando que o responsável da casa cria
-as contas. Nenhum servidor PHP ou captcha é necessário nesse modo.
+O serviço interno `registration` recebe os cadastros pelo proxy em
+`/api/accounts`. Somente a origem configurada em `PUBLIC_ORIGIN` é aceita;
+o proxy limita as tentativas por IP. A redefinição de senha continua restrita
+ao terminal do responsável pelo servidor.
 
 ## Backup
 

@@ -41,7 +41,7 @@ export default class ItemPrompt extends BaseContainer {
         // text
         const text = scene.add.text(0, 0, "", {});
         text.setOrigin(0.5, 0.5);
-        text.text = "You have found a party hat.\nWould you like to pick it up?";
+        text.text = "Você encontrou um chapéu de festa.\nGostaria de pegá-lo?";
         text.setStyle({ "align": "center", "color": "#000000", "fixedWidth":628,"fixedHeight":136,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(text);
 
@@ -92,7 +92,7 @@ export default class ItemPrompt extends BaseContainer {
 
     showItem(id) {
         if (this.inventoryIncludes(id)) {
-            return this.interface.prompt.showError('You already have this item.')
+            return this.interface.prompt.showError('Você já tem este item.')
         }
 
         const data = this.crumbs.items[id]
@@ -123,7 +123,7 @@ export default class ItemPrompt extends BaseContainer {
         const data = this.crumbs.pets[id]
         if (!data) return
 
-        const name = data.name.toLowerCase()
+        const name = data.key || data.name.toLowerCase()
 
         this.showPet(name, this.getFormatString('adopt_pet', data.cost), () => this.showAdoptName(id))
     }
@@ -185,9 +185,9 @@ export default class ItemPrompt extends BaseContainer {
 
     getBuyText(name, cost) {
         if (cost < 1) {
-            return `You have found a ${name}.\nWould you like to pick it up?`
+            return `Você encontrou: ${name}.\nGostaria de pegar?`
         } else {
-            return `Would you like to buy ${name} for ${cost} coins. You currently have ${this.world.client.coins} coins.`
+            return `Você gostaria de comprar ${name} por ${cost} moedas? Você tem ${this.world.client.coins} moedas no momento.`
         }
     }
 

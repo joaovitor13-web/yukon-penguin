@@ -1,6 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { checkAssets, crumbNames } = require('./check-assets.cjs');
+const { addPizzatron } = require('./pizzatron-content.cjs');
+const { translateCrumbs } = require('./translate-content.cjs');
 function assemble(root) {
 const errors = checkAssets(root);
 if (errors.length) throw new Error('Assets incompletos; execute npm run local:check-assets.');
@@ -20,6 +22,11 @@ for (const key of Object.keys(worlds)) if (!['Login', 'Blizzard'].includes(key))
 fs.writeFileSync(path.join(crumbsPath, 'worlds.json'), JSON.stringify(worlds));
 const crumbs = Object.fromEntries(crumbNames.map(name => [name,
     JSON.parse(fs.readFileSync(path.join(crumbsPath, `${name}.json`), 'utf8'))]));
+addPizzatron(root, out, crumbs);
+translateCrumbs(root, crumbs);
+for (const name of crumbNames) {
+    fs.writeFileSync(path.join(crumbsPath, `${name}.json`), JSON.stringify(crumbs[name]));
+}
 fs.writeFileSync(path.join(crumbsPath, 'crumbs.json'), JSON.stringify(crumbs));
 
 const vendor = path.join(out, 'assets/vendor');

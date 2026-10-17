@@ -57,7 +57,7 @@
                     "scope": "CLASS",
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "You have found a party hat.\nWould you like to pick it up?",
+                    "text": "Você encontrou um chapéu de festa.\nGostaria de pegá-lo?",
                     "fixedWidth": 628,
                     "fixedHeight": 136,
                     "align": "center",

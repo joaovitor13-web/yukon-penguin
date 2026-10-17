@@ -49,28 +49,28 @@ export default class Login extends BaseScene {
         // backText
         const backText = this.add.text(760, 876, "", {});
         backText.setOrigin(0.5, 0.5);
-        backText.text = "Back";
+        backText.text = "Voltar";
         backText.setStyle({ "align": "right", "color": "#ffffffff", "fontFamily": "Arial Narrow", "fontSize": "30px" });
         backText.setLineSpacing(25);
 
         // registerText2
         const registerText2 = this.add.text(760, 747, "", {});
         registerText2.setOrigin(0.5, 0.5);
-        registerText2.text = "Create a free account now";
+        registerText2.text = "Crie uma conta grátis agora";
         registerText2.setStyle({ "align": "right", "color": "#ffffffff", "fontFamily": "Arial Narrow", "fontSize": "35px" });
         registerText2.setLineSpacing(25);
 
         // registerText
         const registerText = this.add.text(760, 713, "", {});
         registerText.setOrigin(0.5, 0.5);
-        registerText.text = "Don't have a penguin?";
+        registerText.text = "Não tem um pinguim?";
         registerText.setStyle({ "align": "right", "color": "#000000ff", "fontFamily": "Arial Narrow", "fontSize": "30px" });
         registerText.setLineSpacing(25);
 
         // forgotText
         const forgotText = this.add.text(760, 604, "", {});
         forgotText.setOrigin(0.5, 0.5);
-        forgotText.text = "Forgot your password?";
+        forgotText.text = "Esqueceu sua senha?";
         forgotText.setStyle({ "align": "right", "color": "#ffffffff", "fontFamily": "Arial Narrow", "fontSize": "30px" });
         forgotText.setLineSpacing(25);
 
@@ -80,21 +80,21 @@ export default class Login extends BaseScene {
         // loginText
         const loginText = this.add.text(760, 483, "", {});
         loginText.setOrigin(0.5, 0.5);
-        loginText.text = "Login";
+        loginText.text = "Entrar";
         loginText.setStyle({ "align": "right", "color": "#ffffffff", "fontFamily": "Arial Narrow", "fontSize": "38px" });
         loginText.setLineSpacing(25);
 
         // passwordText
-        const passwordText = this.add.text(503, 258, "", {});
-        passwordText.setOrigin(0, 0.5);
-        passwordText.text = "Password:";
+        const passwordText = this.add.text(612, 258, "", {});
+        passwordText.setOrigin(1, 0.5);
+        passwordText.text = "Senha:";
         passwordText.setStyle({ "align": "right", "color": "#000000ff", "fontFamily": "Arial Narrow", "fontSize": "30px" });
         passwordText.setLineSpacing(25);
 
         // usernameText
-        const usernameText = this.add.text(448, 200, "", {});
-        usernameText.setOrigin(0, 0.5);
-        usernameText.text = "Penguin Name:";
+        const usernameText = this.add.text(612, 200, "", {});
+        usernameText.setOrigin(1, 0.5);
+        usernameText.text = "Nome do Pinguim:";
         usernameText.setStyle({ "align": "right", "color": "#000000ff", "fontFamily": "Arial Narrow", "fontSize": "30px" });
         usernameText.setLineSpacing(25);
 
@@ -198,7 +198,7 @@ export default class Login extends BaseScene {
         let username = this.usernameInput.text
         let password = this.passwordInput.text
 
-        this.interface.showLoading(`Logging in ${username}`)
+        this.interface.showLoading(`Entrando como ${username}`)
         this.scene.stop()
 
         this.network.connectLogin(this.checks.username.checked, this.checks.password.checked, () => {

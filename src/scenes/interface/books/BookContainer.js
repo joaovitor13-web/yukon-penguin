@@ -63,7 +63,7 @@ export default class BookContainer extends BaseDynamicWidget {
 
     setCoins(coins) {
         if (this.coins) {
-            this.coins.text = `YOUR COINS: ${coins}`
+            this.coins.text = `SUAS MOEDAS: ${coins}`
         }
     }
 

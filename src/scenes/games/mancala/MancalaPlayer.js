@@ -26,7 +26,7 @@ export default class MancalaPlayer extends Phaser.GameObjects.Container {
         // waiting
         const waiting = scene.add.text(52, 0, "", {});
         waiting.setOrigin(0, 0.5);
-        waiting.text = "Waiting for Player";
+        waiting.text = "Esperando Jogador";
         waiting.setStyle({ "fontFamily": "Arial", "fontSize": "24px" });
         this.add(waiting);
 
@@ -41,7 +41,7 @@ export default class MancalaPlayer extends Phaser.GameObjects.Container {
         const score = scene.add.text(432, 0, "", {});
         score.setOrigin(1, 0.5);
         score.visible = false;
-        score.text = "Score: 0";
+        score.text = "Pontos: 0";
         score.setStyle({ "align": "right", "color": "#000", "fontFamily": "Arial", "fontSize": "24px" });
         this.add(score);
 
@@ -127,7 +127,7 @@ export default class MancalaPlayer extends Phaser.GameObjects.Container {
     }
 
     setScoreText(score) {
-        this.score.text = `Score: ${score}`
+        this.score.text = `Pontos: ${score}`
     }
 
     /* END-USER-CODE */

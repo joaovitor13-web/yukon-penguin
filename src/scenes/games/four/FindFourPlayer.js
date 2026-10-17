@@ -22,7 +22,7 @@ export default class FindFourPlayer extends Phaser.GameObjects.Container {
         // waiting
         const waiting = scene.add.text(55, 0, "", {});
         waiting.setOrigin(0, 0.5);
-        waiting.text = "Waiting for Player";
+        waiting.text = "Esperando Jogador";
         waiting.setStyle({ "fixedWidth":260,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(waiting);
 

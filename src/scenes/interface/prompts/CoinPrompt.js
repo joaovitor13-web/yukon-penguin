@@ -36,7 +36,7 @@ export default class CoinPrompt extends BaseContainer {
         // text
         const text = scene.add.text(0, 0, "", {});
         text.setOrigin(0.5, 0.5);
-        text.text = "You have found a party hat.\nWould you like to pick it up?";
+        text.text = "Você encontrou um chapéu de festa.\nGostaria de pegá-lo?";
         text.setStyle({ "align": "center", "color": "#000000", "fixedWidth":628,"fixedHeight":136,"fontFamily": "Arial Narrow", "fontSize": "32px" });
         this.add(text);
 

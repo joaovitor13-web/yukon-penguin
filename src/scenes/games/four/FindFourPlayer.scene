@@ -37,7 +37,7 @@
                     "components": [],
                     "x": 55,
                     "originY": 0.5,
-                    "text": "Waiting for Player",
+                    "text": "Esperando Jogador",
                     "fixedWidth": 260,
                     "fontFamily": "Arial",
                     "fontSize": "24px"

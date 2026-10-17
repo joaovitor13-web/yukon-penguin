@@ -39,7 +39,7 @@ export default class InventorySort extends FloatingMenu {
         // all_text
         const all_text = scene.add.text(0, -70, "", {});
         all_text.setOrigin(0.5, 0.5);
-        all_text.text = "All Items";
+        all_text.text = "Todos os Itens";
         all_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(all_text);
 
@@ -50,7 +50,7 @@ export default class InventorySort extends FloatingMenu {
         // other_text
         const other_text = scene.add.text(0, -134, "", {});
         other_text.setOrigin(0.5, 0.5);
-        other_text.text = "Other Items";
+        other_text.text = "Outros Itens";
         other_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(other_text);
 
@@ -61,7 +61,7 @@ export default class InventorySort extends FloatingMenu {
         // colors_text
         const colors_text = scene.add.text(0, -198, "", {});
         colors_text.setOrigin(0.5, 0.5);
-        colors_text.text = "Colors";
+        colors_text.text = "Cores";
         colors_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(colors_text);
 
@@ -72,7 +72,7 @@ export default class InventorySort extends FloatingMenu {
         // feet_text
         const feet_text = scene.add.text(0, -262, "", {});
         feet_text.setOrigin(0.5, 0.5);
-        feet_text.text = "Feet Items";
+        feet_text.text = "Itens dos Pés";
         feet_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(feet_text);
 
@@ -83,7 +83,7 @@ export default class InventorySort extends FloatingMenu {
         // hand_text
         const hand_text = scene.add.text(0, -326, "", {});
         hand_text.setOrigin(0.5, 0.5);
-        hand_text.text = "Hand Items";
+        hand_text.text = "Itens de Mão";
         hand_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(hand_text);
 
@@ -94,7 +94,7 @@ export default class InventorySort extends FloatingMenu {
         // body_text
         const body_text = scene.add.text(0, -390, "", {});
         body_text.setOrigin(0.5, 0.5);
-        body_text.text = "Body Items";
+        body_text.text = "Itens do Corpo";
         body_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(body_text);
 
@@ -105,7 +105,7 @@ export default class InventorySort extends FloatingMenu {
         // neck_text
         const neck_text = scene.add.text(0, -454, "", {});
         neck_text.setOrigin(0.5, 0.5);
-        neck_text.text = "Neck Items";
+        neck_text.text = "Itens do Pescoço";
         neck_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(neck_text);
 
@@ -116,7 +116,7 @@ export default class InventorySort extends FloatingMenu {
         // face_text
         const face_text = scene.add.text(0, -518, "", {});
         face_text.setOrigin(0.5, 0.5);
-        face_text.text = "Face Items";
+        face_text.text = "Itens do Rosto";
         face_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(face_text);
 
@@ -127,7 +127,7 @@ export default class InventorySort extends FloatingMenu {
         // head_text
         const head_text = scene.add.text(0, -582, "", {});
         head_text.setOrigin(0.5, 0.5);
-        head_text.text = "Head Items";
+        head_text.text = "Itens da Cabeça";
         head_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         this.add(head_text);
 
@@ -151,21 +151,21 @@ export default class InventorySort extends FloatingMenu {
         // pins_text
         const pins_text = scene.add.text(0, 0, "", {});
         pins_text.setOrigin(0.5, 0.5);
-        pins_text.text = "Pins/Flags";
+        pins_text.text = "Pins/Bandeiras";
         pins_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         other_container.add(pins_text);
 
         // awards_text
         const awards_text = scene.add.text(0, 64, "", {});
         awards_text.setOrigin(0.5, 0.5);
-        awards_text.text = "Awards";
+        awards_text.text = "Prêmios";
         awards_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         other_container.add(awards_text);
 
         // backgrounds_text
         const backgrounds_text = scene.add.text(0, 128, "", {});
         backgrounds_text.setOrigin(0.5, 0.5);
-        backgrounds_text.text = "Backgrounds";
+        backgrounds_text.text = "Fundos";
         backgrounds_text.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth":268,"fontFamily": "Arial", "fontSize": "24px" });
         other_container.add(backgrounds_text);
 
@@ -173,81 +173,81 @@ export default class InventorySort extends FloatingMenu {
         const allButton = new Button(all);
         allButton.spriteName = "list/small";
         allButton.hoverCallback = () => other_container.visible = false;
-        allButton.callback = () => this.filterInventory('All Items', null);
+        allButton.callback = () => this.filterInventory('Todos os Itens', null);
         allButton.activeFrame = false;
 
         // other (components)
         const otherButton = new Button(other);
         otherButton.spriteName = "list/small_arrow";
         otherButton.hoverCallback = () => other_container.visible = true;
-        otherButton.callback = () => this.filterInventory('Other Items', 'other');
+        otherButton.callback = () => this.filterInventory('Outros Itens', 'other');
         otherButton.activeFrame = false;
 
         // colors (components)
         const colorsButton = new Button(colors);
         colorsButton.spriteName = "list/small";
         colorsButton.hoverCallback = () => other_container.visible = false;
-        colorsButton.callback = () => this.filterInventory('Colors', 'color');
+        colorsButton.callback = () => this.filterInventory('Cores', 'color');
         colorsButton.activeFrame = false;
 
         // feet (components)
         const feetButton = new Button(feet);
         feetButton.spriteName = "list/small";
         feetButton.hoverCallback = () => other_container.visible = false;
-        feetButton.callback = () => this.filterInventory('Feet Items', 'feet');
+        feetButton.callback = () => this.filterInventory('Itens dos Pés', 'feet');
         feetButton.activeFrame = false;
 
         // hand (components)
         const handButton = new Button(hand);
         handButton.spriteName = "list/small";
         handButton.hoverCallback = () => other_container.visible = false;
-        handButton.callback = () => this.filterInventory('Hand Items', 'hand');
+        handButton.callback = () => this.filterInventory('Itens de Mão', 'hand');
         handButton.activeFrame = false;
 
         // body (components)
         const bodyButton = new Button(body);
         bodyButton.spriteName = "list/small";
         bodyButton.hoverCallback = () => other_container.visible = false;
-        bodyButton.callback = () => this.filterInventory('Body Items', 'body');
+        bodyButton.callback = () => this.filterInventory('Itens do Corpo', 'body');
         bodyButton.activeFrame = false;
 
         // neck (components)
         const neckButton = new Button(neck);
         neckButton.spriteName = "list/small";
         neckButton.hoverCallback = () => other_container.visible = false;
-        neckButton.callback = () => this.filterInventory('Neck Items', 'neck');
+        neckButton.callback = () => this.filterInventory('Itens do Pescoço', 'neck');
         neckButton.activeFrame = false;
 
         // face (components)
         const faceButton = new Button(face);
         faceButton.spriteName = "list/small";
         faceButton.hoverCallback = () => other_container.visible = false;
-        faceButton.callback = () => this.filterInventory('Face Items', 'face');
+        faceButton.callback = () => this.filterInventory('Itens do Rosto', 'face');
         faceButton.activeFrame = false;
 
         // head (components)
         const headButton = new Button(head);
         headButton.spriteName = "list/small";
         headButton.hoverCallback = () => other_container.visible = false;
-        headButton.callback = () => this.filterInventory('Head Items', 'head');
+        headButton.callback = () => this.filterInventory('Itens da Cabeça', 'head');
         headButton.activeFrame = false;
 
         // inventory_list_item_9 (components)
         const inventory_list_item_9Button = new Button(inventory_list_item_9);
         inventory_list_item_9Button.spriteName = "list/small";
-        inventory_list_item_9Button.callback = () => this.filterInventory('Pins/Flags', 'flag');
+        inventory_list_item_9Button.callback = () => this.filterInventory('Pins/Bandeiras', 'flag');
         inventory_list_item_9Button.activeFrame = false;
 
         // inventory_list_item_10 (components)
         const inventory_list_item_10Button = new Button(inventory_list_item_10);
         inventory_list_item_10Button.spriteName = "list/small";
-        inventory_list_item_10Button.callback = () => this.filterInventory('Awards', 'award');
+        inventory_list_item_10Button.callback = () => this.filterInventory('Prêmios', 'award');
         inventory_list_item_10Button.activeFrame = false;
 
         // inventory_list_item_11 (components)
         const inventory_list_item_11Button = new Button(inventory_list_item_11);
         inventory_list_item_11Button.spriteName = "list/small";
-        inventory_list_item_11Button.callback = () => this.filterInventory('Backgrounds', 'photo');
+        inventory_list_item_11Button.callback = () => this.filterInventory('Fundos', 'photo');
         inventory_list_item_11Button.activeFrame = false;
 
         this.safe = safe;

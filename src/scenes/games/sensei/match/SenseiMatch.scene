@@ -68,7 +68,7 @@
                     "y": -20,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "Waiting for more players",
+                    "text": "Aguardando mais jogadores",
                     "fixedWidth": 460,
                     "align": "center",
                     "fontFamily": "Arial Narrow",

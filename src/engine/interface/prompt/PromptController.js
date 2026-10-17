@@ -52,7 +52,7 @@ export default class PromptController {
         this.coin.show(coins)
     }
 
-    showError(text, buttonText = 'Okay', callback = () => this.error.close()) {
+    showError(text, buttonText = 'Ok', callback = () => this.error.close()) {
         this.error.show(text, buttonText, callback)
     }
 
@@ -66,10 +66,10 @@ export default class PromptController {
 
     showIgloo(igloo) {
         if (this.world.client.igloos.includes(igloo)) {
-            return this.showError('You already have this igloo.')
+            return this.showError('Você já tem este iglu.')
         }
 
-        let text = `Would you like to buy ${this.crumbs.igloos[igloo].name} for ${this.crumbs.igloos[igloo].cost} coins. You currently have ${this.world.client.coins} coins.`
+        let text = `Você gostaria de comprar ${this.crumbs.igloos[igloo].name} por ${this.crumbs.igloos[igloo].cost} moedas? Você tem ${this.world.client.coins} moedas no momento.`
 
         this.showWindow(text, 'dual', () => {
             this.network.send('add_igloo', { igloo: igloo })
@@ -79,10 +79,10 @@ export default class PromptController {
 
     showFloor(floor) {
         if (floor == this.world.room.args.flooring) {
-            return this.showError('You already have this flooring.')
+            return this.showError('Você já tem este piso.')
         }
 
-        let text = `Would you like to buy ${this.crumbs.flooring[floor].name} for ${this.crumbs.flooring[floor].cost} coins. You currently have ${this.world.client.coins} coins.`
+        let text = `Você gostaria de comprar ${this.crumbs.flooring[floor].name} por ${this.crumbs.flooring[floor].cost} moedas? Você tem ${this.world.client.coins} moedas no momento.`
 
         this.showWindow(text, 'dual', () => {
             this.network.send('update_flooring', { flooring: floor })

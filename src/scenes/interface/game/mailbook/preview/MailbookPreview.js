@@ -47,14 +47,14 @@ export default class MailbookPreview extends BaseContainer {
         // noText
         const noText = scene.add.text(165, 380, "", {});
         noText.setOrigin(0.5, 0.5);
-        noText.text = "No";
+        noText.text = "Não";
         noText.setStyle({ "align": "center", "color": "#333333", "fixedWidth":200,"fontFamily": "Arial", "fontSize": "38px" });
         this.add(noText);
 
         // yesText
         const yesText = scene.add.text(-165, 380, "", {});
         yesText.setOrigin(0.5, 0.5);
-        yesText.text = "Yes";
+        yesText.text = "Sim";
         yesText.setStyle({ "align": "center", "color": "#333333", "fixedWidth":200,"fontFamily": "Arial", "fontSize": "38px" });
         this.add(yesText);
 
@@ -138,7 +138,7 @@ export default class MailbookPreview extends BaseContainer {
     show(postcardId) {
         this.loadPostcard(postcardId)
 
-        this.sendText.text = `Send this postcard to ${this.parentContainer.recipientName} for ${this.postcardCost} coins?`
+        this.sendText.text = `Enviar este cartão para ${this.parentContainer.recipientName} por ${this.postcardCost} moedas?`
 
         super.show()
     }

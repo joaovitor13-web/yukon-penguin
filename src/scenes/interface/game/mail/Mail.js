@@ -90,7 +90,7 @@ export default class Mail extends BaseContainer {
         // text
         const text = scene.add.text(0, 0, "", {});
         text.angle = -9;
-        text.text = "You Have No\nMessages";
+        text.text = "Nenhuma\nMensagem";
         text.setStyle({ "align": "center", "color": "#223C3C", "fixedWidth":300,"fontFamily": "Burbank Small", "fontSize": "50px", "fontStyle": "bold" });
         noMessages.add(text);
 
@@ -279,7 +279,7 @@ export default class Mail extends BaseContainer {
     }
 
     onTrashClick() {
-        const text = `Are you sure you want to recycle this postcard from ${this.getSenderName()}?`
+        const text = `Tem certeza de que quer reciclar este cartão de ${this.getSenderName()}?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.interface.prompt.window.visible = false
@@ -289,7 +289,7 @@ export default class Mail extends BaseContainer {
     }
 
     onRemoveClick() {
-        const text = `This will permanently remove all postcards from ${this.getSenderName()}. Do you want to do this?`
+        const text = `Isso vai apagar para sempre todos os cartões de ${this.getSenderName()}. Deseja continuar?`
 
         this.interface.prompt.showWindow(text, 'dual', () => {
             this.interface.prompt.window.visible = false
@@ -375,7 +375,7 @@ export default class Mail extends BaseContainer {
     }
 
     updateCount() {
-        this.count.text = `MESSAGE\n${this.page} of ${this.cards.length}`
+        this.count.text = `MENSAGEM\n${this.page} de ${this.cards.length}`
     }
 
     updateVisibleElements() {

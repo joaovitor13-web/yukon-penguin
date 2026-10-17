@@ -77,7 +77,7 @@ export default class Mailbook extends BaseContainer {
 
         // sendText3
         const sendText3 = scene.add.text(420, 339, "", {});
-        sendText3.text = "Send to:";
+        sendText3.text = "Enviar para:";
         sendText3.setStyle({ "align": "center", "color": "#333333", "fixedWidth":380,"fontFamily": "CCFaceFront", "fontSize": "56px", "fontStyle": "italic" });
         buddy.add(sendText3);
 
@@ -89,14 +89,14 @@ export default class Mailbook extends BaseContainer {
 
         // sendText2
         const sendText2 = scene.add.text(11, 150, "", {});
-        sendText2.text = "Buy and send\npostcards for";
+        sendText2.text = "Envie cartões\npor";
         sendText2.setStyle({ "color": "#000000", "fontFamily": "Burbank Small", "fontSize": "30px" });
         buddy.add(sendText2);
 
         // postcardsText2
         const postcardsText2 = scene.add.text(128, 48, "", {});
         postcardsText2.setOrigin(0, 0.5);
-        postcardsText2.text = "Postcards";
+        postcardsText2.text = "Cartões";
         postcardsText2.setStyle({ "color": "#000000", "fixedWidth":400,"fontFamily": "Burbank Big Regular", "fontSize": "58px", "fontStyle": "bold" });
         buddy.add(postcardsText2);
 
@@ -137,14 +137,14 @@ export default class Mailbook extends BaseContainer {
 
         // sendText
         const sendText = scene.add.text(969, 0, "", {});
-        sendText.text = "Buy and send\npostcards for";
+        sendText.text = "Envie cartões\npor";
         sendText.setStyle({ "color": "#000000", "fontFamily": "Burbank Small", "fontSize": "25px" });
         postcards.add(sendText);
 
         // titleText
         const titleText = scene.add.text(471, 26, "", {});
         titleText.setOrigin(0, 0.5);
-        titleText.text = "Featured Postcards";
+        titleText.text = "Cartões em Destaque";
         titleText.setStyle({ "color": "#333333", "fixedWidth":600,"fontFamily": "CCFaceFront", "fontSize": "44px" });
         postcards.add(titleText);
 
@@ -155,7 +155,7 @@ export default class Mailbook extends BaseContainer {
         // postcardsText
         const postcardsText = scene.add.text(188, 22, "", {});
         postcardsText.setOrigin(0, 0.5);
-        postcardsText.text = "Postcards";
+        postcardsText.text = "Cartões";
         postcardsText.setStyle({ "color": "#000000", "fixedWidth":400,"fontFamily": "Burbank Big Regular", "fontSize": "58px", "fontStyle": "bold" });
         postcards.add(postcardsText);
 
@@ -366,7 +366,7 @@ export default class Mailbook extends BaseContainer {
     }
 
     updatePageText() {
-        this.pageText.text = `Page ${this.page} of ${this.maxPage}`
+        this.pageText.text = `Página ${this.page} de ${this.maxPage}`
     }
 
     updateGrid() {

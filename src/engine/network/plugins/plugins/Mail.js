@@ -41,15 +41,15 @@ export default class Mail extends Plugin {
     }
 
     showInsufficientCoins() {
-        this.showError('Failed to send Postcard.\nYou need more coins.')
+        this.showError('Não foi possível enviar o cartão.\nVocê precisa de mais moedas.')
     }
 
     showFullInbox() {
-        this.showError('This penguins mailbox is full. Your postcard could not be sent. Please try again later.')
+        this.showError('A caixa de correio deste pinguim está cheia. Não foi possível enviar seu cartão. Tente novamente mais tarde.')
     }
 
     showSuccess() {
-        this.interface.prompt.showMailSuccess('Postcard sent')
+        this.interface.prompt.showMailSuccess('Cartão enviado')
     }
 
     showError(text) {

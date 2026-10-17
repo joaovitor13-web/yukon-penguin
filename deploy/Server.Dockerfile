@@ -3,6 +3,6 @@ WORKDIR /app
 COPY server/package*.json ./
 RUN npm ci
 COPY server/ ./
-RUN npm run build
 COPY deploy/runtime/ ./local/
+RUN node local/install-pizzatron.cjs && npm run build
 ENTRYPOINT ["node", "local/start.cjs"]

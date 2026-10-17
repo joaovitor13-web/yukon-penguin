@@ -3,6 +3,7 @@
 import BaseContainer from "../../../../base/BaseContainer";
 import SimpleButton from "../../../../components/SimpleButton";
 /* START-USER-IMPORTS */
+import fitFontSize from '@engine/utils/text/fitFontSize'
 /* END-USER-IMPORTS */
 
 export default class MailbookPostcardItem extends BaseContainer {
@@ -80,6 +81,7 @@ export default class MailbookPostcardItem extends BaseContainer {
 
         this.id = postcard.id
         this.subject.text = postcard.subject
+        fitFontSize(this.subject, 30)
 
         this.visible = true
     }

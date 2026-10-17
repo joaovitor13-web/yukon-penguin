@@ -45,7 +45,7 @@
                     "y": -275,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "If tied, the highest number wins.",
+                    "text": "Em caso de empate, vence o número mais alto.",
                     "fixedWidth": 828,
                     "fixedHeight": 50,
                     "align": "center",
