@@ -1,0 +1,36 @@
+{
+  "source": "https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/stage/stage-basic",
+  "revision": "c23f3b451fc58db4f411bc0287850e42821a5a6d",
+  "files": [
+    {
+      "path": "media/rooms/stage/stage-basic/basic-anims.json",
+      "bytes": 7521,
+      "sha256": "6a5aa034fc43d21f64da701212efaefdf135802204a77c7cfbeacb07f2d99ef3"
+    },
+    {
+      "path": "media/rooms/stage/stage-basic/stage-basic-0.png",
+      "bytes": 433593,
+      "sha256": "0d66393d4c68210e3b409901f3ce377bb845e804430c91f977fd8e4ca13c7be1"
+    },
+    {
+      "path": "media/rooms/stage/stage-basic/stage-basic-1.png",
+      "bytes": 132347,
+      "sha256": "0f2ecfa05548f981d884f26df1d4f06eef53985a41814f09195e2052bf58b678"
+    },
+    {
+      "path": "media/rooms/stage/stage-basic/stage-basic-pack.json",
+      "bytes": 917,
+      "sha256": "fadc0a1e4f94f9cbf1cd81f7509756d8a4e36f5ba2be988824ef48b9c68f1ae3"
+    },
+    {
+      "path": "media/rooms/stage/stage-basic/stage-basic.json",
+      "bytes": 95214,
+      "sha256": "d2f56897996233039c705d69eb4ca3c663437bfac0b0dd78d2a6a10e76004f5a"
+    },
+    {
+      "path": "media/rooms/stage/stage-basic/stage-physics.json",
+      "bytes": 3842,
+      "sha256": "7ebd67df26e40096c6aba7ef6ceabfc38e212e33ad6e80906761556f73b0ab65"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ const path = require('node:path');
 const { checkAssets, crumbNames } = require('./check-assets.cjs');
 const { addMine } = require('./mine-content.cjs');
 const { addPizzatron } = require('./pizzatron-content.cjs');
+const { addStage } = require('./stage-content.cjs');
 const { translateCrumbs } = require('./translate-content.cjs');
 function assemble(root) {
 const errors = checkAssets(root);
@@ -24,6 +25,7 @@ fs.writeFileSync(path.join(crumbsPath, 'worlds.json'), JSON.stringify(worlds));
 const crumbs = Object.fromEntries(crumbNames.map(name => [name,
     JSON.parse(fs.readFileSync(path.join(crumbsPath, `${name}.json`), 'utf8'))]));
 addPizzatron(root, out, crumbs);
+addStage(root, out, crumbs);
 addMine(root, out, crumbs);
 translateCrumbs(root, crumbs);
 for (const name of crumbNames) {
@@ -43,6 +45,7 @@ const html = fs.readFileSync(htmlPath, 'utf8')
 if (html.includes('cdn.jsdelivr.net')) throw new Error('Uma dependência CDN ficou no HTML.');
 fs.writeFileSync(htmlPath, html);
 fs.copyFileSync(path.join(root, 'deploy/account-info.html'), path.join(out, 'account-info.html'));
+fs.cpSync(path.join(root, 'resources/create'), path.join(out, 'create/img'), { recursive: true, filter: file => !file.endsWith('.md') });
 console.log('Distribuição local gerada em local-dist/. Validar mídia e jogos em navegador.');
 }
 

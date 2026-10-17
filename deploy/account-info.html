@@ -4,60 +4,145 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Crie seu pinguim · Yukon</title>
+    <link rel="stylesheet" href="/assets/styles/fonts.css">
     <style>
         * { box-sizing: border-box; }
-        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; font: 16px/1.5 system-ui, sans-serif; background: #edf7ff; color: #163854; }
-        main { width: 100%; max-width: 460px; padding: 32px; border: 1px solid #c8dfef; border-radius: 20px; background: white; box-shadow: 0 12px 40px #1638540d; }
-        h1 { margin: 0 0 8px; font-size: 30px; line-height: 1.2; }
-        .intro { color: #526b7c; margin-bottom: 24px; }
-        label { display: block; font-weight: 600; margin-top: 18px; }
-        input { display: block; width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #a9c3d5; border-radius: 8px; font: inherit; }
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; font: 17px/1.4 'Burbank Small', Arial, sans-serif; background: #0280cd; color: #1d3b5a; }
+        main { position: relative; width: 100%; max-width: 940px; padding: 36px 40px 32px; border: 4px solid #21c0f0; border-radius: 24px; background: #fff url(img/starburst.png) center / cover no-repeat; box-shadow: 0 10px 0 #01609b; }
+        h1 { margin: 0 0 20px; font: bold 40px/1.1 'Burbank Big Regular', 'Burbank Small', Arial, sans-serif; color: #0280cd; text-align: center; }
+        .layout { display: grid; grid-template-columns: 300px 1fr; gap: 32px; align-items: start; }
+        .doll { position: relative; width: 100%; max-width: 280px; aspect-ratio: 380 / 472; margin: 0 auto; }
+        .doll .body, .doll .outline { position: absolute; }
+        .doll .body { left: 7.76%; top: 0.74%; width: 85%; height: 81.57%; background: var(--color, #003366); transition: background-color .25s linear;
+            -webkit-mask: url(img/doll-body.png) center / 100% 100% no-repeat; mask: url(img/doll-body.png) center / 100% 100% no-repeat; }
+        .doll .outline { inset: 0; width: 100%; height: 100%; }
+        fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+        legend, label { display: block; font-weight: bold; color: #0d5c91; }
+        legend { margin: 18px 0 10px; text-align: center; width: 100%; }
+        .swatches { display: grid; grid-template-columns: repeat(7, 34px); gap: 8px; justify-content: center; }
+        .swatches label { margin: 0; }
+        .swatches input { position: absolute; opacity: 0; pointer-events: none; }
+        .swatches label span { display: block; width: 34px; height: 34px; border: 3px solid #ddd; border-radius: 8px; background: var(--swatch); cursor: pointer; }
+        .swatches input:checked + span { border-color: #eeec05; box-shadow: 0 0 0 2px #0280cd; }
+        .swatches input:focus-visible + span { outline: 3px solid #eeae30; outline-offset: 2px; }
+        #color-name { margin: 10px 0 0; text-align: center; color: #526b7c; }
+        label { margin-top: 16px; }
+        .layout > form > label:first-child { margin-top: 0; }
+        input[type=text], input[type=password] { display: block; width: 100%; padding: 12px 14px; margin-top: 6px; border: 3px solid #b8d4e6; border-radius: 12px; font: bold 20px 'Burbank Small', Arial, sans-serif; color: #444; background: #fff; }
+        input[type=text]:focus, input[type=password]:focus { border-color: #21c0f0; outline: none; }
         input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #eeae30; outline-offset: 3px; }
-        small { display: block; color: #526b7c; margin-top: 5px; }
-        button { width: 100%; margin-top: 24px; padding: 13px; border: 0; border-radius: 8px; background: #05629e; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+        small { display: block; color: #526b7c; margin-top: 4px; font-size: 15px; }
+        .agree { display: flex; gap: 10px; align-items: flex-start; margin-top: 18px; font-weight: normal; color: #1d3b5a; }
+        .agree input { width: 22px; height: 22px; margin: 1px 0 0; flex: none; accent-color: #0280cd; }
+        button { display: block; width: 100%; max-width: 280px; margin: 24px auto 0; padding: 14px; border: 0; border-radius: 14px; background: linear-gradient(#24a4e8, #0574c4); box-shadow: inset 0 -3px 0 #04589a; color: #fff; font: bold 24px 'Burbank Big Regular', 'Burbank Small', Arial, sans-serif; cursor: pointer; }
+        button:hover { background: linear-gradient(#3cb6f5, #0a84d6); }
         button:disabled { opacity: .65; cursor: wait; }
-        a { color: #05629e; }
-        .back { display: block; text-align: center; margin-top: 20px; }
-        #message { margin: 16px 0 0; }
-        #message[data-state="error"] { color: #a32626; }
+        a { color: #0280cd; }
+        .back { display: block; text-align: center; margin-top: 18px; }
+        #message { margin: 14px 0 0; text-align: center; font-weight: bold; }
+        #message[data-state="error"] { color: #b3261e; }
         #message[data-state="success"] { color: #17623b; }
+        #welcome { text-align: center; }
+        #welcome .doll { max-width: 220px; }
+        #welcome h2 { font: bold 32px/1.2 'Burbank Big Regular', 'Burbank Small', Arial, sans-serif; color: #0280cd; margin: 16px 0 8px; }
         [hidden] { display: none !important; }
-        @media (max-width: 400px) { main { padding: 22px; } }
+        @media (max-width: 760px) {
+            main { padding: 24px 18px; }
+            h1 { font-size: 32px; }
+            .layout { grid-template-columns: 1fr; gap: 20px; }
+            .doll { max-width: 200px; }
+        }
+        @media (max-width: 380px) { .swatches { grid-template-columns: repeat(5, 34px); } }
     </style>
 </head>
 <body>
 <main>
-    <h1>Crie seu pinguim</h1>
-    <p class="intro">Escolha seu nome e sua senha para entrar no mundo Blizzard. Seu progresso fica salvo no servidor.</p>
-    <form id="signup">
-        <label for="username">Nome do pinguim</label>
-        <input id="username" name="username" autocomplete="username" minlength="4" maxlength="12" pattern="[A-Za-z0-9 ]{4,12}" required aria-describedby="name-help" autocapitalize="none" spellcheck="false">
-        <small id="name-help">De 4 a 12 letras sem acento, números ou espaços internos.</small>
-        <label for="password">Senha</label>
-        <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required aria-describedby="password-help">
-        <small id="password-help">Pelo menos 8 caracteres, até 72 bytes. Use uma senha exclusiva para o jogo.</small>
-        <label for="confirmation">Confirme sua senha</label>
-        <input id="confirmation" name="confirmation" type="password" autocomplete="new-password" minlength="8" maxlength="72" required>
-        <button type="submit">Criar minha conta</button>
-    </form>
-    <p id="message" role="status" aria-live="polite" tabindex="-1"></p>
+    <section id="create">
+        <h1>Crie seu pinguim</h1>
+        <div class="layout">
+            <div>
+                <div class="doll" aria-hidden="true"><div class="body"></div><img class="outline" src="img/doll-outline.png" alt=""></div>
+                <fieldset form="signup">
+                    <legend>Escolha uma cor</legend>
+                    <div class="swatches" id="swatches"></div>
+                    <p id="color-name" aria-live="polite"></p>
+                </fieldset>
+            </div>
+            <form id="signup" novalidate>
+                <label for="username">Nome do pinguim</label>
+                <input id="username" name="username" type="text" autocomplete="username" minlength="4" maxlength="12" pattern="[A-Za-z0-9 ]{4,12}" required aria-describedby="name-help" autocapitalize="none" spellcheck="false">
+                <small id="name-help">De 4 a 12 letras sem acento, números ou espaços internos.</small>
+                <label for="password">Senha</label>
+                <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required aria-describedby="password-help">
+                <small id="password-help">Pelo menos 8 caracteres, até 72 bytes. Use uma senha exclusiva para o jogo.</small>
+                <label for="confirmation">Confirme sua senha</label>
+                <input id="confirmation" name="confirmation" type="password" autocomplete="new-password" minlength="8" maxlength="72" required>
+                <label class="agree"><input id="rules" type="checkbox" required> Prometo seguir as regras: ser gentil, não compartilhar dados pessoais e respeitar os outros pinguins.</label>
+                <button type="submit">Criar pinguim</button>
+                <p id="message" role="status" aria-live="polite" tabindex="-1"></p>
+            </form>
+        </div>
+    </section>
+    <section id="welcome" hidden>
+        <div class="doll" aria-hidden="true"><div class="body"></div><img class="outline" src="img/doll-outline.png" alt=""></div>
+        <h2 id="welcome-title" tabindex="-1"></h2>
+        <p>Sua conta foi criada. Entre no jogo com seu nome e senha.</p>
+        <button type="button" id="play">Jogar agora</button>
+    </section>
     <a class="back" href="/">Voltar ao jogo</a>
     <noscript>Ative o JavaScript do navegador para criar sua conta.</noscript>
 </main>
 <script>
+    // Cores 1 a 13 do catálogo, como no cadastro original.
+    const colors = [
+        ['#003366', 'Azul'], ['#009900', 'Verde'], ['#FF3399', 'Rosa'], ['#333333', 'Preto'],
+        ['#CC0000', 'Vermelho'], ['#FF6600', 'Laranja'], ['#FFCC00', 'Amarelo'], ['#660099', 'Roxo Escuro'],
+        ['#996600', 'Marrom'], ['#FF6666', 'Pêssego'], ['#006600', 'Verde Escuro'], ['#0099CC', 'Azul Claro'],
+        ['#8AE302', 'Verde-Limão']
+    ];
     const form = document.getElementById('signup');
     const message = document.getElementById('message');
     const button = form.querySelector('button');
+    const swatches = document.getElementById('swatches');
+    const colorName = document.getElementById('color-name');
+
+    function setColor(id) {
+        const [hex, name] = colors[id - 1];
+        document.documentElement.style.setProperty('--color', hex);
+        colorName.textContent = name;
+    }
+
+    const initial = 1 + Math.floor(Math.random() * colors.length);
+    colors.forEach(([hex, name], index) => {
+        const id = index + 1;
+        const label = document.createElement('label');
+        label.title = name;
+        label.innerHTML = `<input type="radio" name="color" value="${id}" form="signup" aria-label="${name}"><span style="--swatch:${hex}"></span>`;
+        const input = label.querySelector('input');
+        input.checked = id === initial;
+        input.addEventListener('change', () => setColor(id));
+        swatches.append(label);
+    });
+    setColor(initial);
+
     form.addEventListener('submit', async event => {
         event.preventDefault();
         const { username, password, confirmation } = form.elements;
+        const color = Number(document.querySelector('input[name=color]:checked')?.value);
         message.dataset.state = 'error';
-        if (username.value.trim() !== username.value || password.value.trim() !== password.value) {
-            message.textContent = 'Nome e senha não podem começar ou terminar com espaços.';
+        if (!/^[A-Za-z0-9 ]{4,12}$/.test(username.value) || username.value.trim() !== username.value) {
+            message.textContent = 'Use um nome com 4 a 12 letras sem acento, números ou espaços internos.';
+            username.focus();
+            return;
+        }
+        if (password.value.length < 8 || password.value.trim() !== password.value) {
+            message.textContent = 'Use uma senha com pelo menos 8 caracteres e sem espaços nas extremidades.';
+            password.focus();
             return;
         }
         if (new TextEncoder().encode(password.value).length > 72) {
             message.textContent = 'A senha deve ter até 72 bytes. Caracteres acentuados podem ocupar mais de um byte.';
+            password.focus();
             return;
         }
         if (password.value !== confirmation.value) {
@@ -65,32 +150,41 @@
             confirmation.focus();
             return;
         }
+        if (!form.elements.rules.checked) {
+            message.textContent = 'Você precisa concordar com as regras para continuar.';
+            form.elements.rules.focus();
+            return;
+        }
         button.disabled = true;
-        button.textContent = 'Criando sua conta…';
+        button.textContent = 'Criando…';
         message.textContent = '';
         try {
             const response = await fetch('/api/accounts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username.value, password: password.value, confirmation: confirmation.value })
+                body: JSON.stringify({ username: username.value, password: password.value, confirmation: confirmation.value, color })
             });
             const result = await response.json().catch(() => ({}));
+            if (response.ok) {
+                document.getElementById('create').hidden = true;
+                document.getElementById('welcome').hidden = false;
+                const title = document.getElementById('welcome-title');
+                title.textContent = `Bem-vindo à ilha, ${username.value}!`;
+                form.reset();
+                title.focus();
+                return;
+            }
             message.textContent = result.message || (response.status === 429
                 ? 'Muitas tentativas. Aguarde um minuto e tente novamente.'
                 : 'Não foi possível criar a conta. Tente novamente em instantes.');
-            if (response.ok) {
-                message.dataset.state = 'success';
-                form.reset();
-                form.hidden = true;
-                message.focus();
-            }
         } catch {
             message.textContent = 'Não foi possível conectar ao servidor. Confira sua conexão e tente novamente.';
         } finally {
             button.disabled = false;
-            button.textContent = 'Criar minha conta';
+            button.textContent = 'Criar pinguim';
         }
     });
+    document.getElementById('play').addEventListener('click', () => { window.location.href = '/'; });
 </script>
 </body>
 </html>

@@ -109,6 +109,14 @@ A sala de acesso usa o pack original da pizzaria obtido de
 versionado em `resources/pizza/` com manifesto SHA-256 e
 [notas de origem](../resources/pizza/README.md). Os textos do minijogo estão em inglês.
 
+## Complemento Teatro
+
+O submódulo também não tem a sala Stage (340). O pack básico do teatro vem de
+[CPJourney-2/assets](https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/stage/stage-basic)
+e está versionado em `resources/stage/`, com manifesto SHA-256 e
+[notas de origem](../resources/stage/README.md). As portas do palco na Plaza
+levam a essa sala.
+
 ## Complemento Mina
 
 O pacote fixado de `yukon-assets` contém o minijogo Cart Surfer
