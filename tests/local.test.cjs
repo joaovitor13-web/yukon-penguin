@@ -40,6 +40,7 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         write('deploy/account-info.html', '<p>Conta local</p>');
         fs.cpSync(path.join(__dirname, '../resources/pizzatron'), path.join(root, 'resources/pizzatron'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/create'), path.join(root, 'resources/create'), { recursive: true });
+        fs.cpSync(path.join(__dirname, '../resources/stage'), path.join(root, 'resources/stage'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/pizza'), path.join(root, 'resources/pizza'), { recursive: true });
         fs.cpSync(path.join(__dirname, '../resources/pt-BR'), path.join(root, 'resources/pt-BR'), { recursive: true });
         assemble(root);
@@ -49,6 +50,8 @@ test('montagem local configura mundos, remove CDN e mantém a mídia original', 
         assert.equal(crumbs.worlds.Extra, undefined);
         assert.equal(crumbs.rooms['330'].path, 'pizza/Pizza');
         assert.equal(crumbs.games['910'].path, 'pizzatron/game.swf');
+        assert.equal(crumbs.rooms['340'].path, 'stage/Stage');
+        assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/rooms/stage/stage-basic/stage-basic-pack.json')));
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/flash/games/pizzatron/lang/en/locale.swf')));
         assert.ok(fs.existsSync(path.join(root, 'local-dist/assets/media/rooms/pizza/pizza.png')));
         for (const image of ['doll-body.png', 'doll-outline.png', 'starburst.png']) {

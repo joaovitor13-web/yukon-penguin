@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { checkAssets, crumbNames } = require('./check-assets.cjs');
 const { addPizzatron } = require('./pizzatron-content.cjs');
+const { addStage } = require('./stage-content.cjs');
 const { translateCrumbs } = require('./translate-content.cjs');
 function assemble(root) {
 const errors = checkAssets(root);
@@ -23,6 +24,7 @@ fs.writeFileSync(path.join(crumbsPath, 'worlds.json'), JSON.stringify(worlds));
 const crumbs = Object.fromEntries(crumbNames.map(name => [name,
     JSON.parse(fs.readFileSync(path.join(crumbsPath, `${name}.json`), 'utf8'))]));
 addPizzatron(root, out, crumbs);
+addStage(root, out, crumbs);
 translateCrumbs(root, crumbs);
 for (const name of crumbNames) {
     fs.writeFileSync(path.join(crumbsPath, `${name}.json`), JSON.stringify(crumbs[name]));
