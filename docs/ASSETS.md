@@ -104,5 +104,7 @@ manifesto SHA-256 próprio e [notas de origem](../resources/pizzatron/README.md)
 A montagem copia o complemento e gera as entradas 330 (Pizza) e 910 (Pizzatron)
 na distribuição. O importador e a mídia original do submódulo são preservados.
 O build Docker também inclui esse complemento, sem downloads extras do jogo.
-A sala de acesso é desenhada em Phaser pelo código local; não usa um pack de
-sala que esteja faltando no submódulo. Os textos do minijogo estão em inglês.
+A sala de acesso usa o pack original da pizzaria obtido de
+[CPJourney-2/assets](https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/pizza),
+versionado em `resources/pizza/` com manifesto SHA-256 e
+[notas de origem](../resources/pizza/README.md). Os textos do minijogo estão em inglês.
