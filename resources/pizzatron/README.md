@@ -23,6 +23,5 @@ a um resultado inteiro de 0 a 2000 moedas por entrada. Isso segue o modelo de
 pontuação enviada pelo cliente usado no Yukon; não simula a partida no servidor.
 Nenhum submódulo é modificado no hospedeiro.
 
-A sala Pizza é uma implementação local em Phaser, desenhada por código. Ela
-oferece um salão compartilhado, uma saída para a Plaza e uma porta para o
-Pizzatron. Não reproduz todas as animações da pizzaria original.
+A sala Pizza usa o pack com a arte original descrito em
+[resources/pizza](../pizza/README.md), copiado junto na montagem.

@@ -1,77 +1,131 @@
 import RoomScene from '../RoomScene'
 
-// Sala local em Phaser: o minijogo original continua sendo executado pelo Ruffle.
+import { Animation, Button, MoveTo, ShowHint } from '@components/components'
+
+
+// Layout e atlas da pizzaria original, adaptados de CPJourney-2/yukon.
+// O minijogo Pizzatron continua sendo executado pelo Ruffle.
 export default class Pizza extends RoomScene {
+
     constructor() {
         super('Pizza')
+
+        /** @type {Array<Phaser.GameObjects.Image|Phaser.GameObjects.Container>} */
+        this.sort
+
+        this.roomTriggers = {
+            'plaza': () => this.triggerRoom(300, 1152, 520),
+            'pizzatron': () => this.triggerGame(910)
+        }
         this.music = '20'
     }
 
-    _preload() {}
-
-    get roomPhysics() { return true }
-
-    addPhysics() {
-        this.matter.world.setBounds(0, 0, 1520, 960)
-        this.block = this.matter.add.rectangle(760, 165, 1520, 330, { isStatic: true })
+    _preload() {
+        this.load.pack('pizza-pack', 'assets/media/rooms/pizza/pizza-pack.json')
     }
 
     _create() {
-        const g = this.add.graphics()
-        g.fillStyle(0xf1d8a4).fillRect(0, 0, 1520, 960)
-        g.fillStyle(0xa95d3d).fillRect(0, 330, 1520, 630)
-        g.lineStyle(3, 0x80442e, .5)
-        for (let y = 340; y < 960; y += 75) {
-            g.lineBetween(0, y, 1520, y)
-            for (let x = (y % 2 ? 0 : 90); x < 1520; x += 210) g.lineBetween(x, y, x, y + 75)
-        }
-        g.fillStyle(0x536d52).fillRect(0, 260, 1520, 70)
-        g.fillStyle(0x35483a).fillRect(0, 320, 1520, 14)
-        // Forno e balcão.
-        g.fillStyle(0xba6944).fillRoundedRect(70, 120, 265, 215, 28)
-        g.fillStyle(0x412b27).fillRoundedRect(110, 190, 185, 138, 45)
-        g.fillStyle(0xf3ab39).fillEllipse(200, 295, 135, 34)
-        g.fillStyle(0x814c36).fillRoundedRect(38, 360, 470, 100, 25)
-        g.fillStyle(0xe7c897).fillRoundedRect(30, 340, 490, 45, 16)
-        g.fillStyle(0x537567).fillRoundedRect(305, 290, 110, 56, 8)
-        // Mesa do chef e quadros do salão.
-        this.label(200, 80, 'PIZZARIA', 34, '#4d392b')
-        g.fillStyle(0x513e30).fillRoundedRect(580, 70, 300, 175, 14)
-        g.fillStyle(0x294b43).fillRoundedRect(591, 81, 278, 153, 8)
-        this.label(730, 114, 'NO CARDÁPIO', 22, '#fff0c5')
-        this.label(730, 161, 'Pizza • Amigos • Diversão', 19, '#fff0c5')
-        this.label(730, 202, 'Uma mesa para todo pinguim', 15, '#fff0c5')
-        for (const [x, y] of [[380, 630], [1150, 590], [1100, 790]]) {
-            const table = this.add.graphics().setPosition(x, y).setDepth(y)
-            table.fillStyle(0x653f31).fillEllipse(0, 20, 235, 95)
-            table.fillStyle(0xf3e5c8).fillEllipse(0, 0, 235, 95)
-            table.lineStyle(5, 0xbb5345).strokeEllipse(0, 0, 235, 95)
-            table.fillStyle(0xc39654).fillEllipse(0, -4, 100, 43)
-            table.fillStyle(0xe8ba65).fillEllipse(0, -7, 84, 32)
-            table.fillStyle(0xb84d3e)
-            for (const dx of [-22, 6, 23]) table.fillEllipse(dx, -8 + dx / 4, 12, 7)
-        }
-        // Portas clicáveis: o salão continua compartilhado entre os jogadores.
-        this.door(1360, 'PLAZA', 'Voltar à praça', () => this.triggerRoom(300, 1152, 520), 0x426b67)
-        this.door(1050, 'COZINHA', 'Jogar Pizzatron 3000', () => this.triggerGame(910), 0x8e3934)
-        this.label(760, 865, 'Clique na porta da cozinha para fazer pizzas!', 24, '#fff2d2')
+        const scaled = (x, y, frame) => this.add.image(x, y, 'pizza', frame).setScale(1.02)
+
+        scaled(760, 483, 'bg')
+        const bead_door = scaled(385, 241, 'bead-door')
+
+        const piano = this.add.image(1270.6, 447.8, 'pizza', 'piano')
+        piano.setOrigin(0.14971, 0.62236)
+
+        const door = scaled(837, 265, 'door')
+        scaled(187, 515, 'pizza-pan')
+        scaled(110, 457, 'oven')
+
+        const foreground = scaled(112, 957.7, 'foreground')
+        foreground.setOrigin(0.5, 0.93879)
+
+        const chair1 = scaled(414, 609, 'chair1')
+        const chair2 = scaled(577, 609, 'chair2')
+        const table1 = this.addTable(494, 664, 'table1', 5, -84, [0.47077, 0.58791])
+
+        const chair3 = scaled(677, 719, 'chair3')
+        const chair4 = this.add.image(840, 719, 'pizza', 'chair4')
+        const table2 = this.addTable(763, 775, 'table2', -4, -79, [0.61509, 0.75921], true)
+
+        const chair5 = scaled(987, 687, 'chair5')
+        const chair6 = scaled(1159, 687, 'chair6')
+        const table3 = this.addTable(1071, 735, 'table3', -3, -79, [0.51046, 0.77399])
+
+        const steam = this.add.sprite(43, 165, 'pizza', 'smoke0001')
+        const fire = this.add.sprite(110, 770, 'pizza', 'fire0001').setScale(1.02)
+
+        // Balcão com livro de pedidos e caixa registradora.
+        const counter = this.add.container(528, 452.57)
+        const book = this.add.sprite(60, -103, 'pizza', 'book-hover0001').setScale(1.02)
+        book.setOrigin(0.4676, 0.55917)
+        const register = this.add.sprite(-65, -87, 'pizza', 'register0001').setScale(1.02)
+        register.setOrigin(0.5, 0.88386)
+        counter.add([scaled(0, -19.57, 'big-table'), book, register])
+
+        this.add.image(381, 32, 'pizza', 'sign')
+
+        this.sort = [piano, chair1, chair2, chair3, chair4, chair5, chair6, counter, table3, table2, table1, foreground]
+
+        // Porta de contas para a cozinha (Pizzatron).
+        const beadDoorButton = new Button(bead_door)
+        beadDoorButton.spriteName = 'bead-door'
+        beadDoorButton.pixelPerfect = true
+        const beadDoorShowHint = new ShowHint(bead_door)
+        beadDoorShowHint.text = 'pizzatron_hint'
+        const beadDoorMoveTo = new MoveTo(bead_door)
+        beadDoorMoveTo.x = 384
+        beadDoorMoveTo.y = 405
+
+        // Saída para a Plaza.
+        const doorButton = new Button(door)
+        doorButton.spriteName = 'door'
+        doorButton.pixelPerfect = true
+        const doorMoveTo = new MoveTo(door)
+        doorMoveTo.x = 837
+        doorMoveTo.y = 450
+
+        this.animate(steam, 'smoke', 5)
+        this.animate(fire, 'fire', 8)
+
+        // Animações de passar o mouse sobre o livro e o caixa.
+        this.hoverAnimate(book, 'book-hover', 16, this.add.rectangle(593, 361, 140, 40))
+        this.hoverAnimate(register, 'register', 42, this.add.rectangle(463, 331, 110, 100))
+
         this.events.emit('scene-awake')
     }
 
-    label(x, y, text, size, color) {
-        return this.add.text(x, y, text, { fontFamily: 'Arial', fontSize: `${size}px`, color, align: 'center' }).setOrigin(.5)
+    addTable(x, y, frame, candleX, candleY, origin, flip = false) {
+        const table = this.add.container(x, y)
+
+        const candle = this.add.sprite(candleX, candleY, 'pizza', 'candle-fire10001')
+        candle.setScale(0.5)
+        candle.setOrigin(...origin)
+        candle.flipX = flip
+
+        table.add([this.add.image(0, 0, 'pizza', frame).setScale(1.02), candle])
+        this.animate(candle, 'candle-fire1', 14)
+
+        return table
     }
 
-    door(x, title, hint, callback, color) {
-        this.add.rectangle(x, 224, 210, 215, 0x54392f).setStrokeStyle(5, 0xe6be80)
-        const door = this.add.rectangle(x, 234, 184, 192, color)
-        this.label(x, 165, title, 24, '#fff3d7')
-        this.label(x, 226, title === 'COZINHA' ? 'PIZZATRON\n3000' : 'SAÍDA', 27, '#fff3d7')
-        this.label(x, 310, hint, 15, '#fff3d7')
-        door.isButton = true
-        door.setInteractive({ useHandCursor: true })
-        door.on('pointerover', () => door.setFillStyle(color, .8))
-        door.on('pointerout', () => door.setFillStyle(color))
-        door.on('pointerup', pointer => { if (pointer.button === 0) callback() })
+    animate(sprite, key, end, autoPlay = true) {
+        const animation = new Animation(sprite)
+        animation.key = key
+        animation.end = end
+        animation.autoPlay = autoPlay
+
+        return animation
     }
+
+    hoverAnimate(sprite, key, end, zone) {
+        const animation = this.animate(sprite, key, end, false)
+        animation.repeat = 0
+
+        zone.setInteractive()
+        zone.on('pointerover', () => {
+            if (!sprite.anims.isPlaying) animation.play()
+        })
+    }
+
 }

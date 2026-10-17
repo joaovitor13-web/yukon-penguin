@@ -45,3 +45,25 @@ test('arquivos do pacote Pizzatron correspondem ao manifesto SHA-256', () => {
         assert.ok(['CWS', 'FWS'].includes(bytes.subarray(0, 3).toString()), entry.path);
     }
 });
+
+test('pack original da sala Pizza corresponde ao manifesto e às referências', () => {
+    const root = path.join(__dirname, '../resources/pizza');
+    const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json')));
+    for (const entry of manifest.files) {
+        const bytes = fs.readFileSync(path.join(root, entry.path));
+        assert.equal(bytes.length, entry.bytes, entry.path);
+        assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256, entry.path);
+    }
+    const dir = path.join(root, 'media/rooms/pizza');
+    const pack = JSON.parse(fs.readFileSync(path.join(dir, 'pizza-pack.json')));
+    for (const file of pack.section1.files) {
+        assert.ok(fs.existsSync(path.join(root, file.url.replace('assets/', ''))), file.url);
+    }
+    const atlas = JSON.parse(fs.readFileSync(path.join(dir, 'pizza.json')));
+    const frames = new Set(atlas.textures.flatMap(t => t.frames.map(f => f.filename)));
+    const scene = fs.readFileSync(path.join(__dirname, '../src/scenes/rooms/pizza/Pizza.js'), 'utf8');
+    for (const [, frame] of scene.matchAll(/(?:'pizza', |scaled\([^']*)'([^']+)'/g)) assert.ok(frames.has(frame), frame);
+    for (const frame of ['smoke0005', 'fire0008', 'candle-fire10014', 'book-hover0016', 'register0042']) assert.ok(frames.has(frame), frame);
+    const physics = JSON.parse(fs.readFileSync(path.join(dir, 'pizza-physics.json')));
+    for (const key of ['block', 'plaza', 'pizzatron']) assert.ok(physics[key], key);
+});

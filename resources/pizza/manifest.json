@@ -1,0 +1,21 @@
+{
+  "source": "https://github.com/CPJourney-2/assets/tree/c23f3b451fc58db4f411bc0287850e42821a5a6d/media/rooms/pizza",
+  "revision": "c23f3b451fc58db4f411bc0287850e42821a5a6d",
+  "files": [
+    {
+      "path": "media/rooms/pizza/pizza.json",
+      "bytes": 35053,
+      "sha256": "184822387bb8c2ae51ad72a2174549cae781c086faf438e0bbcce1562f111a21"
+    },
+    {
+      "path": "media/rooms/pizza/pizza.png",
+      "bytes": 1088387,
+      "sha256": "21e4c890aab57a1c9827dc1a38e612b0a0890b7389a2852ab1fc5e6e1fcc0c37"
+    },
+    {
+      "path": "media/rooms/pizza/pizza-physics.json",
+      "bytes": 3154,
+      "sha256": "f339ca3ade05579e536b1dfbbe846089aff40f5aecf77dc1d5008f0e346514e9"
+    }
+  ]
+}
