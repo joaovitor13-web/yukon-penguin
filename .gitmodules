@@ -1,3 +1,6 @@
 [submodule "server"]
 	path = server
 	url = https://github.com/wizguin/yukon-server.git
+[submodule "resources/yukon-assets"]
+	path = resources/yukon-assets
+	url = https://gitgud.io/piefruit/assets.git

@@ -1,8 +1,14 @@
 .git
 node_modules
 dist
+local-dist
 .env
 backups
 server/.git
 server/node_modules
 server/config/config.json
+resources/yukon-assets/.git
+# Importar a mídia da revisão fixada do submódulo dentro do build.
+assets/media
+assets/fonts
+assets-manifest.local.json

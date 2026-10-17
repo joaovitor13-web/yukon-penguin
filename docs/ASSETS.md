@@ -21,23 +21,31 @@ de crumbs esperados pelo nosso verificador, sem arquivos ausentes ou JSONs
 inválidos. O preload usa o caminho esperado para `crumbs.json`, e
 `games.json` fornece o campo `path` consumido pelo cliente atual.
 
-Isso confirma uma fonte muito mais adequada para a integração. Ainda não
-confirma que toda imagem, som e SWF foi baixado e funciona: a inspeção local
-foi parcial, focada em configurações e fontes. A mídia completa ainda não foi
-importada no jogo e nenhuma partida foi validada.
+O pacote completo foi baixado em 17/10/2026 e integrado ao projeto como
+submódulo em `resources/yukon-assets/`, fixado na revisão acima. Foram importados
+33.800 arquivos de `media/` e `fonts/` (aproximadamente 2 GB). A verificação dos
+23 JSONs essenciais passou e a distribuição `local-dist/` foi gerada com sucesso.
+O manifesto SHA-256 local registra todos os arquivos importados.
 
-Para baixar a cópia completa, fora do repositório do jogo:
+Nenhuma partida foi validada ainda. A presença dos arquivos e o sucesso da
+montagem não comprovam o funcionamento de cada sala e minijogo.
+
+Para obter a versão integrada a este repositório:
 
 ```bash
-git clone --depth 1 https://gitgud.io/piefruit/assets.git ../yukon-assets
-git -C ../yukon-assets rev-parse HEAD
-node scripts/import-assets.cjs ../yukon-assets
+git submodule update --init --recursive
+node scripts/import-assets.cjs resources/yukon-assets
 npm run local:check-assets
 ```
 
-Esses comandos devem ser executados na pasta `yukon-penguin`. O segundo
-comando registra a revisão efetivamente baixada; compare-a com a examinada
-acima. O clone completo é diferente da cópia parcial usada nesta pesquisa.
+O script `bash scripts/local.sh build` inicializa os submódulos e importa a mídia
+automaticamente se `assets/media` ainda não existir. O build Docker da imagem web
+usa diretamente a revisão fixada do submódulo, sem depender da cópia importada
+no hospedeiro. Veja também [resources/README.md](../resources/README.md).
+
+Os arquivos continuam hospedados na fonte original; nosso histórico Git contém
+o vínculo e a revisão exata. Por isso, o ZIP gerado pelo GitHub não inclui a
+mídia: use um clone com `--recurse-submodules` ou inicialize os submódulos.
 
 ### Espelho no GitHub e outras fontes
 
@@ -48,9 +56,8 @@ acima. O clone completo é diferente da cópia parcial usada nesta pesquisa.
 | [Solero vanilla-media](https://git.solero.me/solero/vanilla-media) | Mídia para o cliente Flash AS3; também exige adaptação para o Yukon. |
 | [anthonywww/cpcontinuned-media](https://github.com/anthonywww/cpcontinuned-media) | Outro arquivo público de mídia Flash, descrito pelo autor como compatível com Aurora. Não é um pacote pronto para Yukon. |
 
-A prioridade passa a ser importar a fonte piefruit/assets, auditar os caminhos
-referenciados e testar o carregamento do jogo, em vez de reconstruir os recursos
-a partir dos arquivos Flash originais.
+A próxima etapa é auditar os caminhos referenciados e testar o carregamento
+do jogo com os serviços reais e dois jogadores.
 
 ## Importação
 

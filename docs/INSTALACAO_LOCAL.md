@@ -1,14 +1,15 @@
 # Instalação do servidor doméstico
 
 Esta primeira implementação fornece a infraestrutura e os comandos. Ainda
-faltam os assets compatíveis e a validação completa com containers e jogadores.
+falta a validação completa com containers e jogadores. A mídia foi integrada
+em um submódulo e já foi importada e montada na distribuição local.
 Não é uma distribuição pronta para jogar.
 
 ## Requisitos
 
 - Computador hospedeiro Linux, inicialmente Fedora, ligado durante as sessões.
 - Git, Node.js 22 e Docker Engine com Docker Compose v2 configurados.
-- Pacote de mídia compatível, conforme [ASSETS.md](ASSETS.md).
+- Submódulos inicializados, incluindo a mídia em `resources/yukon-assets/`.
 - Dispositivos conectados à mesma rede doméstica, sem isolamento de clientes.
 
 Não há instalação automática de Docker nem alteração automática de firewall.
@@ -32,7 +33,6 @@ ou de containers. Abaixo, `192.168.1.50` é apenas um exemplo:
 
 ```bash
 node scripts/setup-local.cjs 192.168.1.50
-node scripts/import-assets.cjs /caminho/do/pacote/assets
 bash scripts/local.sh build
 bash scripts/local.sh start
 ```

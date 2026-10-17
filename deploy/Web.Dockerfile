@@ -3,7 +3,9 @@ WORKDIR /client
 COPY package*.json ./
 RUN npm ci
 COPY . ./
-RUN npm run build && node scripts/assemble-local.cjs
+RUN node scripts/import-assets.cjs resources/yukon-assets \
+    && npm run build \
+    && node scripts/assemble-local.cjs
 
 FROM nginx:1.28-alpine
 COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf

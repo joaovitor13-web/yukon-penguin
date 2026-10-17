@@ -6,6 +6,9 @@ docker compose version >/dev/null
 case "${1:-help}" in
   build)
     git submodule update --init --recursive
+    if [[ ! -d assets/media ]]; then
+      node scripts/import-assets.cjs resources/yukon-assets
+    fi
     node scripts/check-assets.cjs
     docker compose build
     ;;

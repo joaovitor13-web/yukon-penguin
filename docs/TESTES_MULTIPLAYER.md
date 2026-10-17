@@ -14,7 +14,18 @@ real. Nenhuma partida multiplayer foi validada ainda.
 - Verificação da sintaxe do script Bash e dos scripts Node.js.
 
 Os arquivos fictícios dos testes não são assets jogáveis. O verificador de mídia
-falha quando os JSONs essenciais estão ausentes, como ocorre no fork atual.
+falha quando os JSONs essenciais estão ausentes.
+
+## Mídia integrada em 17/10/2026
+
+- Download completo da revisão `9e6a576d4e8925ebd166d636e72888e9c8fdb545`.
+- Submódulo `resources/yukon-assets/` adicionado e fixado nessa revisão.
+- Importação de 33.800 arquivos de mídia e fontes, com manifesto SHA-256 local.
+- `npm run local:check-assets` passou com os arquivos reais.
+- `npm run local:assemble` passou e gerou a distribuição com a mídia real.
+
+Esses resultados substituem o bloqueio anterior de obtenção dos arquivos;
+a execução com containers e os testes de partidas ainda estão pendentes.
 
 ## Limitações do ambiente de desenvolvimento
 
@@ -27,7 +38,8 @@ em execução, o tratamento dos IPs, a persistência ou a restauração.
 
 | Teste | Resultado |
 |---|---|
-| Importar mídia compatível e carregar a tela inicial | Pendente: pacote de mídia |
+| Importar mídia compatível | Concluído; verificador e montagem passaram |
+| Carregar a tela inicial no navegador | Pendente: execução real |
 | Subir containers e importar tabelas/gatilhos | Pendente: Docker e banco reais |
 | Criar duas contas, conferir iglu e inventário iniciais | Pendente |
 | Nome duplicado e senha incorreta serem rejeitados | Pendente |
@@ -51,6 +63,7 @@ npm run build
 npm run local:check-assets
 ```
 
-O último comando deve falhar até importar o pacote real. Depois de importar,
-execute `npm run local:assemble` e valide a distribuição em containers e no
-navegador. A ausência de erros de JSON não substitui uma sessão real.
+Em um clone novo, importe primeiro com
+`node scripts/import-assets.cjs resources/yukon-assets`. Depois execute
+`npm run local:assemble` e valide a distribuição em containers e no navegador.
+A ausência de erros de JSON não substitui uma sessão real.
